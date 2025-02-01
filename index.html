@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Hash 切換區塊</title>
+</head>
+<body>
+
+  <a href="#section1">顯示區塊 1</a>
+  <a href="#section2">顯示區塊 2</a>
+  <a href="#section3">顯示區塊 3</a>
+
+  <div id="section1" hidden>
+    <h2>區塊 1</h2>
+    <p>這是第一個區塊的內容。</p>
+  </div>
+
+  <div id="section2" hidden>
+    <h2>區塊 2</h2>
+    <p>這是第二個區塊的內容。</p>
+  </div>
+
+  <div id="section3" hidden>
+    <h2>區塊 3</h2>
+    <p>這是第三個區塊的內容。</p>
+  </div>
+
+  <script>
+    function showSectionFromHash() {
+      const hash = window.location.hash;
+      console.log("Current hash:", hash);
+
+      if (hash) {
+        const targetSection = document.querySelector(hash);
+        console.log("Target section:", targetSection);
+
+        if (targetSection) {
+          document.querySelectorAll('div[hidden]').forEach(section => {
+            section.hidden = true;
+          });
+          targetSection.hidden = false;
+        } else {
+          console.log("No matching section found for:", hash);
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', showSectionFromHash);
+    window.addEventListener('hashchange', showSectionFromHash);
+  </script>
+
+</body>
+</html>
