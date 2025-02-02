@@ -1,7 +1,7 @@
 title: "Xu Yu-Chia's Blog"
 description: "分享程式、專案與生活！"
-baseurl: ""  # 如果不是放在子目錄，留空即可
-url: "https://xu-yu-chia.github.io/blog"
+baseurl: ""  
+url: "https://xu-yu-chia.github.io"
 
 theme: minima
 markdown: kramdown
