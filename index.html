@@ -39,78 +39,14 @@
         <!-- 部落格（隱藏於主頁外） -->
         <section id="home">
             <h1 class="text-2xl font-bold mb-4 interactive">Blog</h1>
-            <ul class="space-y-4">
-                <!-- 文章1 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog1" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章1</h2>
-                        <p class="text-gray-400">這是範例文章1的簡介內容，展示如何撰寫部落格文章。</p>
-                    </a>
-                </li>
-                <!-- 文章2 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog2" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章2</h2>
-                        <p class="text-gray-400">這是範例文章2的簡介內容，分享部落格寫作技巧。</p>
-                    </a>
-                </li>
-                <!-- 文章3 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog3" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章3</h2>
-                        <p class="text-gray-400">這是範例文章3的簡介內容，介紹部落格設計的基本概念。</p>
-                    </a>
-                </li>
-                <!-- 文章4 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog4" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章4</h2>
-                        <p class="text-gray-400">這是範例文章4的簡介內容，介紹如何吸引讀者。</p>
-                    </a>
-                </li>
-                <!-- 文章5 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog5" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章5</h2>
-                        <p class="text-gray-400">這是範例文章5的簡介內容，探索部落格的SEO優化技巧。</p>
-                    </a>
-                </li>
-                <!-- 文章6 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog6" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章6</h2>
-                        <p class="text-gray-400">這是範例文章6的簡介內容，分析社群媒體與部落格的關聯。</p>
-                    </a>
-                </li>
-                <!-- 文章7 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog7" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章7</h2>
-                        <p class="text-gray-400">這是範例文章7的簡介內容，討論內容創作的多樣性。</p>
-                    </a>
-                </li>
-                <!-- 文章8 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog8" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章8</h2>
-                        <p class="text-gray-400">這是範例文章8的簡介內容，如何管理你的部落格。</p>
-                    </a>
-                </li>
-                <!-- 文章9 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog9" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章9</h2>
-                        <p class="text-gray-400">這是範例文章9的簡介內容，了解部落格的盈利模式。</p>
-                    </a>
-                </li>
-                <!-- 文章10 -->
-                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
-                    <a href="#blog10" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-blue-300 font-semibold">範例文章10</h2>
-                        <p class="text-gray-400">這是範例文章10的簡介內容，介紹如何增強讀者互動。</p>
-                    </a>
-                </li>
-            </ul>
+                <ul>
+                  {% for post in site.posts %}
+                    <li>
+                      <a href="{{ post.url }}">{{ post.title }}</a>
+                      <p>{{ post.excerpt }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
         </section>
 
 
