@@ -1,5 +1,9 @@
-title: Blogs
-description: 這是我的部落格，分享我的文章與想法。
-baseurl: ""
+title: "Xu Yu-Chia's Blog"
+description: "分享程式、專案與生活！"
+baseurl: ""  # 如果不是放在子目錄，留空即可
 url: "https://xu-yu-chia.github.io/blog"
+
 theme: minima
+markdown: kramdown
+
+permalink: /:year/:month/:day/:title/
