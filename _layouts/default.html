@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+<html lang="zh-Hant">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
+    <title>Xu Yu-Chia's Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
+</head>
+    
 
+    
+<body class="bg-gray-950 text-gray-200">
+    <!-- 頂部導航欄 -->
+    
+    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold"><a href ="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-400"><i class="fa fa-address-card"> About Me</i></a></li>
+                <li><a href="#projects" class="hover:text-gray-400"><i class="fa fa-folder-open"> Projects</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-400"><i class="fas fa-pen"> Blogs</i></a></li>
+                <li><a href="#sports_record" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
+                <li><a href="#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- 主內容 -->
+  <main class="max-w-6xl mx-auto p-8">
+    <section id="home">
+        <h1 class="text-2xl font-bold mb-4 interactive">📝 最新文章</h1>
+        <ul class="space-y-4">
+            {% for post in site.posts %}
+                <li class="p-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-2xl shadow-lg interactive">
+                    <a href="{{ post.url }}" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
+                        <h2 class="text-xl text-blue-300 font-semibold">{{ post.title }}</h2>
+                        <p class="text-gray-400">{{ post.excerpt }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+  </main>
+
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
+        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    </footer>
+                              
+    
+</body>
+</html>
