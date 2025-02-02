@@ -42,3 +42,30 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
+function showSectionFromHash() {
+  let hash = window.location.hash;
+
+  if (!hash) {
+    window.location.hash = '#home'; // 沒有 hash 時跳回首頁
+    return;
+  }
+
+  const targetSection = document.querySelector(hash);
+
+  if (targetSection) {
+    // 隱藏所有 section
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('hidden');
+    });
+
+    // 顯示目標 section
+    targetSection.classList.remove('hidden');
+  } else {
+    // 如果 hash 無效，導回首頁
+    window.location.hash = '#home';
+  }
+}
+
+// 頁面載入時和 hash 變化時執行
+window.addEventListener('DOMContentLoaded', showSectionFromHash);
+window.addEventListener('hashchange', showSectionFromHash);
