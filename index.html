@@ -1,53 +1,378 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+<html lang="zh-Hant">
+    
+    
 <head>
-  <meta charset="UTF-8">
-  <title>Hash 切換區塊</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
+    <title>Xu Yu-Chia's Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
 </head>
-<body>
+    
 
-  <a href="#section1">顯示區塊 1</a>
-  <a href="#section2">顯示區塊 2</a>
-  <a href="#section3">顯示區塊 3</a>
+    
+<body class="bg-gray-950 text-gray-200">
+    <!-- 頂部導航欄 -->
+    
+    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold"><a href ="#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+            <ul class="flex space-x-6">
+                <li><a href="https://xu-yu-chia.github.io/#about" class="hover:text-gray-400"><i class="fa fa-info"> About Me</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#projects" class="hover:text-gray-400"><i class="fa fa-folder"> Projects</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#sports_record" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
+                <!--<li><a href="https://xu-yu-chia.github.io/#home" class="hover:text-gray-400"><i class="fa fa-home"></i></li>-->
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- 主內容 -->
+    <main class="max-w-6xl mx-auto p-8">
+        
+        <!-- 專案（隱藏於主頁外） -->
+        <section id="projects" class="hidden">
+            <h1 class="text-2xl font-bold mb-4 interactive">Project</h1>
+            <ul class="space-y-4">
+                <!-- 卡片 -->
+                <li class="p-4  bg-gradient-to-r from-pink-300 via-orange-200 to-yellow-300 rounded-2xl shadow-lg interactive">
+                    <a href="#project1" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
+                        <h2 class="text-xl text-pink-300 font-semibold">工學院程式競賽</h2>
+                        <p class="text-gray-400">中央大學工學院程式競賽擔任組長榮獲第一名的佳績</p>
+                    </a>
+                <!-- 高中自主學習卡片 -->
+                <li class="p-4 bg-gradient-to-r from-yellow-500 via-orange-400 to-red-300 rounded-2xl shadow-lg interactive">
+                    <a href="#project2" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
+                        <h2 class="text-xl text-yellow-500 font-semibold">自主學習</h2>
+                        <p class="text-gray-400">嘉義高中全年級自主學習成果發表榮獲佳作</p>
+                    </a>
+                </li>
+                <!-- 高中自主學習卡片 -->
+                <li class="p-4 bg-gradient-to-r from-red-400 via-pink-500 to-purple-500 rounded-2xl shadow-lg interactive">
+                    <a href="#project3" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
+                        <h2 class="text-xl text-red-400 font-semibold">阿克曼轉向機構的研究與實作</h2>
+                        <p class="text-gray-400">獲得1130315梯次小論文工程技術類甲等</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
 
-  <div id="section1" hidden>
-    <h2>區塊 1</h2>
-    <p>這是第一個區塊的內容。</p>
-  </div>
 
-  <div id="section2" hidden>
-    <h2>區塊 2</h2>
-    <p>這是第二個區塊的內容。</p>
-  </div>
+        <!-- Project1 Section -->
+        <section id="project1" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg hidden">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
+                    中央大學工學院程式競賽
+                </h1>
+                <h2 class="text-3xl font-bold text-cyan-300">
+                    <span>C++ 程式設計專題：數據編碼與加密技術</span>
+                </h2>
+            </header>
 
-  <div id="section3" hidden>
-    <h2>區塊 3</h2>
-    <p>這是第三個區塊的內容。</p>
-  </div>
+            <!-- Video Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">成果影片</h3>
+                <div class="flex justify-center">
+                    <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/wvgr3S6WTZQ?si=6dRDctGfHAZ4SO4F" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
 
-  <script>
-    function showSectionFromHash() {
-      const hash = window.location.hash;
-      console.log("Current hash:", hash);
+            <!-- Team Members -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">團隊成員</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li><span class="font-semibold text-cyan-400">組長：</span>許彧嘉</li>
+                    <li><span class="font-semibold text-cyan-400">組員：</span>林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
+                </ul>
+            </div>
 
-      if (hash) {
-        const targetSection = document.querySelector(hash);
-        console.log("Target section:", targetSection);
+            <!-- Project Purpose -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題主旨</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專題結合 Base64 編碼解碼和位移加密解密兩種基本技術，並將其應用在多次編碼與解碼流程中，挑戰學生的程式設計思維與問題解決能力。
+                </p>
+            </div>
 
-        if (targetSection) {
-          document.querySelectorAll('div[hidden]').forEach(section => {
-            section.hidden = true;
-          });
-          targetSection.hidden = false;
-        } else {
-          console.log("No matching section found for:", hash);
-        }
-      }
-    }
+            <!-- Goals & Learning Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 學習重點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">Base64 編碼解碼：</strong>
+                        學習資料轉換為 Base64 編碼以提升系統兼容性與安全性。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">位移加密算法：</strong>
+                        理解簡單加密原理，為學習複雜加密技術奠定基礎。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">多次編碼與解碼處理：</strong>
+                        學習多步驟數據處理的管理與應用。
+                    </li>
+                </ul>
+            </div>
 
-    window.addEventListener('DOMContentLoaded', showSectionFromHash);
-    window.addEventListener('hashchange', showSectionFromHash);
-  </script>
+            <!-- Assignment Details -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">題目</h3>
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">多層 Base64 與位移加密解密系統的設計與實作</h4>
+                <p class="text-gray-300 mb-6">請撰寫一個 C++ 程式，實現以下功能：</p>
 
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">功能要求</h4>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">多層 Base64 編碼與位移加密：</strong>
+                        <ul class="list-disc list-inside ml-6 space-y-2">
+                            <li>支援對輸入文字執行多層 Base64 編碼，並多次編碼後進行位移加密。</li>
+                            <li>加密次數由密鑰控制。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">多層 Base64 解碼與位移解密：</strong>
+                        <ul class="list-disc list-inside ml-6 space-y-2">
+                            <li>解密過程與加密順序相反，層數與位移量由密鑰控制。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">結論與展望</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    多層加密系統雖存在挑戰，但透過結合其他加密演算法與多步驗證，安全性將進一步提升。未來將持續研究更強大的加密技術以確保資料安全。
+                </p>
+            </div>
+
+            <!-- Code Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
+                <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
+                    <code class="language-cpp">
+                    #include <bits/stdc++.h>
+                    using namespace std;
+                    
+                    
+
+                    </code>
+                </pre>
+            </div>
+        </section>
+
+        
+        <!-- Project2 Section -->
+        <section id="project2" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg hidden">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
+                    Arduino 電子元件運用與實作
+                </h1>
+                <h2 class="text-3xl font-bold text-cyan-300">
+                    <span>高精度溫濕度計與俄羅斯方塊</span>
+                </h2>
+            </header>
+
+            <!-- Video Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案影片</h3>
+                <div class="flex justify-center">
+                    <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/fHl4a61_1b4" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Project Overview -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案簡介</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專案旨在學習並熟悉 Arduino 電子元件的使用，透過設計與實作高精度溫濕度計與俄羅斯方塊，讓我更深入了解電子元件與通訊協定的應用。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專案包括學習 OLED 顯示器、溫濕度感測器（DHT11、AHT10）以及 LED 矩陣等元件，並應用 I2C 與 SPI 通訊協定完成實作。
+                </p>
+            </div>
+
+            <!-- Goals & Outcomes -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 預期成果</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">高精度溫濕度計：</strong>
+                        結合 AHT10 感測器與 OLED(SPI) 顯示器，實現準確顯示溫濕度數據。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">俄羅斯方塊遊戲：</strong>
+                        利用按鈕與 LED 矩陣模組實作經典的俄羅斯方塊，提升遊戲互動體驗。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Technical Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">技術亮點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">通訊協定學習：</strong>
+                        熟悉 I2C 與 SPI 通訊協定，應用於元件間的資料傳輸。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">元件整合：</strong>
+                        融合多個電子元件如 DHT11、AHT10、OLED 顯示器和 LED 矩陣。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">程式設計挑戰：</strong>
+                        解決如複雜條件判斷、元件驅動程式撰寫等技術難點。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Challenges & Reflection -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">挑戰與反思</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    在實作過程中，遇到多次元件接腳錯誤與程式邏輯問題，特別是 LED 矩陣顯示控制的複雜性。但這些挑戰也提升了我的除錯能力與對元件操作的熟練度。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    這次專案讓我更加理解電子元件的運作原理，同時也激發了對電子工程的更大興趣，期待未來能挑戰更複雜的專案設計。
+                </p>
+            </div>
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">作品圖片</h3>
+                <img src="tetris.png" height="444" width="562" alt="tetris">
+            </div>
+            
+            <!-- Project Code -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">俄羅斯方塊程式碼：</h3>
+                <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
+                    <code class="language-cpp">
+                    #include <LedControl.h>
+                    #define INI_speed 500 //初始速度 單位ms
+
+
+
+                    </code>
+                </pre>
+            </div>
+        </section>
+
+                              
+        <!-- Project3 Section -->
+        <section id="project3" class="p-8 bg-gray-800 text-white rounded-2xl shadow-lg hidden">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-green-400 hover:text-green-300 transition-all">
+                    阿克曼轉向機構的研究與實作
+                </h1>
+                <h2 class="text-3xl font-bold text-green-300">
+                    <span>自走車實作與轉向系統應用</span>
+                </h2>
+            </header>
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">小論文</h3>
+                <iframe src="ackermann.pdf" width="50%" height="600px"></iframe>
+            </div>
+            
+            <!-- Project Overview -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">專案簡介</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專案研究阿克曼轉向機構在自走車上的應用，實作一套靈活可靠的轉向系統，解決傳統轉向裝置的不足，並透過 Arduino 實現遙控及精準控制。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專案結合伺服馬達、紅外線遙控器與多種電子元件，探討轉向結構、車體設計與程式控制的最佳實踐。
+                </p>
+            </div>
+        
+            <!-- Goals & Outcomes -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">專題目標 & 預期成果</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-green-400">阿克曼轉向系統：</strong>
+                        實現符合阿克曼幾何理論的轉向結構，增強轉彎靈活性與穩定性。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">自主移動平台：</strong>
+                        利用 Arduino 控制伺服馬達與 TT 馬達，搭建穩定的自走車底盤。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">多場景應用：</strong>
+                        測試自走車在不同轉向半徑與環境中的應用價值。
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Technical Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">技術亮點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-green-400">阿克曼理論應用：</strong>
+                        理解並實現阿克曼比例計算，確保轉向時車輪角度精確。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">硬體整合：</strong>
+                        包括 3D 列印車體、伺服馬達控制轉向、L298N 驅動動力輪。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">紅外線遙控：</strong>
+                        使用紅外線遙控器進行多功能控制，如前進、後退、轉向與速度調整。
+                    </li>
+                </ul>
+            </div>
+            
+
+            <!-- Challenges & Reflection -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">挑戰與反思</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    在實作過程中，遇到車體結構設計、電源分配與紅外線干擾等挑戰，透過持續調整與測試，成功優化了自走車性能並解決問題。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    這次研究讓我們更深入理解轉向機構的應用價值，同時也為未來機器人設計提供了寶貴經驗。
+                </p>
+            </div>
+        
+            <!-- Project Code -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">參考資料</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    專案程參考以下資源：
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li><a href="https://reurl.cc/edr3Db" class="text-green-400 underline" target="_blank">阿克曼轉向相關程式碼</a></li>
+                    <li><a href="https://www.maserati.com/tw/zh/models" class="text-green-400 underline" target="_blank">瑪莎拉蒂車型</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
+        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    </footer>
+                              
+    
 </body>
 </html>
