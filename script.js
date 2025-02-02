@@ -18,7 +18,7 @@ document.body.addEventListener('click', (e) => {
     ripple.style.top = `${e.pageY - size / 2}px`;
     setTimeout(() => ripple.remove(), 400);
 });
-
+/*
 // 監聽超連結的點擊事件
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
@@ -69,3 +69,5 @@ function showSectionFromHash() {
 // 頁面載入時和 hash 變化時執行
 window.addEventListener('DOMContentLoaded', showSectionFromHash);
 window.addEventListener('hashchange', showSectionFromHash);
+
+*/
