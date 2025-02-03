@@ -30,55 +30,57 @@ body {
     }
 }
 
-/* 基本文章卡片樣式 */
+/* 暗色系文章卡片樣式 */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.8;
+}
+
 .post-card {
-  background-color: gray-900;
+  background-color: #1e1e1e;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
   padding: 20px;
   margin: 20px auto;
   max-width: 800px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #2a2a2a;
 }
 
-/* 滑鼠懸停效果 */
 .post-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
 }
 
-/* 標題樣式 */
 .post-card h1, .post-card h2, .post-card h3 {
   margin-bottom: 12px;
-  color: cyan-400;
+  color: #ffffff;
   font-weight: bold;
 }
 
-/* 內文與段落 */
 .post-card p {
-  line-height: 1.8;
-  color: gray-300;
+  color: #cccccc;
   margin-bottom: 16px;
 }
 
-/* 引用區塊 */
 .post-card blockquote {
   border-left: 4px solid #007acc;
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
   padding: 12px 20px;
   margin: 16px 0;
-  color: #444;
+  color: #a0a0a0;
   font-style: italic;
 }
 
-/* 文章圖片樣式 */
 .post-card img {
   max-width: 100%;
   border-radius: 12px;
   margin: 16px 0;
+  border: 1px solid #333;
 }
 
-/* 閱讀進度條 (可選) */
 .read-progress {
   position: fixed;
   top: 0;
@@ -89,3 +91,4 @@ body {
   z-index: 999;
   transition: width 0.3s ease;
 }
+
