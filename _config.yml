@@ -6,7 +6,7 @@ theme: minima
 markdown: kramdown
 kramdown:
   input: GFM   # 啟用 GitHub Flavored Markdown，增加語法相容性
-  hard_wrap: false
+  hard_wrap: true
   syntax_highlighter: rouge
 
 permalink: /:year/:month/:day/:title/
