@@ -1,9 +1,0 @@
-title: Xu Yu-Chia's Blog
-description: 分享程式、專案與生活！
-baseurl: "/blog"  
-url: "https://xu-yu-chia.github.io"
-
-theme: minima
-markdown: kramdown
-
-permalink: /:year/:month/:day/:title/
