@@ -6,12 +6,14 @@ title: "Xu Yu-Chia's Blog"
 
 <div class="posts-container">
   {% for post in site.posts %}
-    <div class="post-card">
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-      <a href="{{ post.url | relative_url }}" class="read-more">閱讀更多 →</a>
-    </div>
+    {% unless post.hidden %}
+      <div class="post-card">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more">閱讀更多 →</a>
+      </div>
+    {% endunless %}
   {% endfor %}
 </div>
 
