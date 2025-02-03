@@ -5,3 +5,4 @@ url: "https://xu-yu-chia.github.io"
 theme: minima
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+
