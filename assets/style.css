@@ -128,20 +128,44 @@ body {
   margin: 20px 0;
 }
 
+/* 📌 標籤區塊的外框 */
+.post-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap; /* 讓標籤自動換行 */
+  gap: 8px;        /* 標籤之間的間距 */
+}
 
+/* 🏷️ 標籤標題樣式（例如：標籤：） */
+.post-tags h3 {
+  color: #aaa;               /* 淺灰色文字，適合暗色背景 */
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 600;          /* 加粗標題 */
+}
+
+/* 🏷️ 單一標籤的樣式 */
 .tag {
   display: inline-block;
-  background-color: #444;   /* 深色背景，符合暗色系 */
-  color: #fff;              /* 白色文字 */
-  padding: 4px 8px;
-  margin: 4px;
-  border-radius: 8px;       /* 圓角 */
-  font-size: 0.85em;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  background-color: #333;    /* 深灰色背景 */
+  color: #fff;               /* 白色文字 */
+  padding: 4px 10px;         /* 內距 */
+  border-radius: 8px;        /* 圓角 */
+  font-size: 0.85em;         /* 略小的字體 */
+  text-decoration: none;     /* 移除底線 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 平滑的動畫效果 */
 }
 
+/* 🎯 滑鼠懸停效果 */
 .tag:hover {
-  background-color: #666;   /* 滑鼠懸停變亮 */
+  background-color: #555;    /* 滑鼠懸停時變亮 */
+  transform: scale(1.05);    /* 略微放大效果 */
+  color: #fff;
 }
 
+/* ⭐ 可選的標籤點綴效果 */
+.tag::before {
+  content: "#";              /* 每個標籤前加上 # */
+  margin-right: 4px;
+  color: #888;               /* 與標籤主色有區別的小細節 */
+}
