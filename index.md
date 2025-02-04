@@ -19,10 +19,12 @@ title: "Xu Yu-Chia's Blog"
               {% endfor %}
             </div>
           {% endif %}
+        <br>
         <a href="{{ post.url | relative_url }}" class="read-more">閱讀更多 →</a>
       </div>
     {% endunless %}
   {% endfor %}
 </div>
+
 
 
