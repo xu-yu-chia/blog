@@ -42,7 +42,7 @@
             <div class="post-tags mt-4">
                 <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
                 {% for tag in page.tags %}
-                    <a href="/blog/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+                    <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
                 {% endfor %}
             </div>
         {% endif %}
