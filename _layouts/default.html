@@ -37,8 +37,18 @@
     
     <!-- 主內容 -->
     <main class="max-w-6xl mx-auto p-8">
-        {{ content }}
+    {{ content }}
+        <!-- 🚩 新增標籤區塊 -->
+        {% if page.tags %}
+            <div class="post-tags mt-4">
+                <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
+                {% for tag in page.tags %}
+                    <a href="/blog/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </main>
+
 
 
     <!-- 頁腳 -->
