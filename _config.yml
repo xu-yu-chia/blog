@@ -4,10 +4,17 @@ baseurl: "/blog"
 url: "https://xu-yu-chia.github.io"
 theme: minima
 markdown: kramdown
+
 kramdown:
   input: GFM   # 啟用 GitHub Flavored Markdown，增加語法相容性
   hard_wrap: true
   syntax_highlighter: rouge
+
+collections:
+  tags:
+    output: true
+    permalink: /tags/:name/
+
 
 permalink: /:year/:month/:day/:title/
 
