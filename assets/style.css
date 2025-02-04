@@ -127,3 +127,21 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   margin: 20px 0;
 }
+
+
+.tag {
+  display: inline-block;
+  background-color: #444;   /* 深色背景，符合暗色系 */
+  color: #fff;              /* 白色文字 */
+  padding: 4px 8px;
+  margin: 4px;
+  border-radius: 8px;       /* 圓角 */
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #666;   /* 滑鼠懸停變亮 */
+}
+
