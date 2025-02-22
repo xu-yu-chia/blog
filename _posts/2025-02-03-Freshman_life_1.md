@@ -78,7 +78,8 @@ hidden: false
 這也迫使我一直被考試追殺
 永遠都在擔心下一科考試念不完
 
-![黑板]({{ site.baseurl }}/picture/1740211596729.jpg)
+
+<img src="{{ site.baseurl }}/picture/1740211596729.jpg" alt="K中黑板" width="300">
 
 
 K中讀書的氛圍超級好
