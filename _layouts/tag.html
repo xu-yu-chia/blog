@@ -4,14 +4,28 @@ title: 標籤
 permalink: /tags/:name/
 ---
 
-<h1># {{ page.tag }}</h1>
+<h1>{{ page.tag }}</h1>
 
-<ul>
+<div class="posts-container">
   {% assign tag_posts = site.posts | where_exp:"post", "post.tags contains page.tag" %}
   {% for post in tag_posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
-    </li>
+    {% unless post.hidden %}
+      <div class="post-card">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% if post.tags %}
+          <div class="post-tags">
+            {% for tag in post.tags %}
+              <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <br>
+        <a href="{{ post.url | relative_url }}" class="read-more">閱讀更多 →</a>
+      </div>
+    {% endunless %}
   {% endfor %}
-</ul>
+</div>
+
 
