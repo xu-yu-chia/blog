@@ -46,25 +46,34 @@
     
     <!-- 主內容 -->
     <main class="max-w-6xl mx-auto p-8">
-        <nav>
-          <h3>目錄</h3>
-          <div id="toc">
-            {{ content | toc }}
-          </div>
-        </nav>
-
-        <!-- 🚩 新增標籤區塊 -->
-        {% if page.tags %}
-            <div class="post-tags mt-4">
-                <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
-                {% for tag in page.tags %}
-                    <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
-                {% endfor %}
+        <div class="flex flex-col md:flex-row">
+            <!-- 目錄區塊 -->
+            <nav class="md:w-1/4 md:pr-8">
+                <h3 class="text-lg font-semibold text-gray-300">目錄</h3>
+                <div id="toc">
+                    {{ content | toc_only }}  <!-- ✅ 修正：只顯示目錄，不會重複文章 -->
+                </div>
+            </nav>
+    
+            <!-- 主要內容 -->
+            <div class="md:w-3/4">
+                <!-- 🚩 標籤區塊 -->
+                {% if page.tags %}
+                    <div class="post-tags mt-4">
+                        <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
+                        {% for tag in page.tags %}
+                            <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <br>
+    
+                <!-- 文章內容 -->
+                {{ content }}
             </div>
-        {% endif %}
-        <br>
-        {{ content }}
+        </div>
     </main>
+
 
 
 
