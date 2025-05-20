@@ -110,6 +110,36 @@ body {
   color: #d0d0d0;
   font-weight: bold;
   margin: 15px 0;
+  border-bottom: 1px solid #a0a0a0;
+  padding-bottom: 5px;
+}
+
+.post-content h4 {
+  font-size: 1.25rem;
+  color: #c0c4cc;
+  font-weight: 600;
+  margin: 12px 0;
+  padding-left: 8px;
+  border-left: 3px solid #5a8ed6;
+}
+
+.post-content h5 {
+  font-size: 1.1rem;
+  color: #b0b4bc;
+  font-weight: 500;
+  margin: 10px 0;
+  border-bottom: 1px dashed #909090;
+  padding-bottom: 3px;
+}
+
+.post-content h6 {
+  font-size: 1rem;
+  color: #a0a4ac;
+  font-weight: 500;
+  margin: 8px 0;
+  padding-left: 6px;
+  border-left: 2px solid #4a7ec6;
+  font-style: italic;
 }
 
 .post-content p {
