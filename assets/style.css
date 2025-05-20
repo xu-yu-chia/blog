@@ -95,6 +95,7 @@ body {
   padding-bottom: 10px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
 }
 
 .post-content h2 {
@@ -103,43 +104,47 @@ body {
   border-left: 4px solid #6a9ee6;
   padding-left: 12px;
   margin: 20px 0;
+  font-weight: 700;
 }
 
 .post-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem; /* 稍微加大一點 */
   color: #d0d0d0;
-  font-weight: bold;
-  margin: 15px 0;
+  font-weight: 700;
+  margin: 18px 0;
   border-bottom: 1px solid #a0a0a0;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 
 .post-content h4 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #c0c4cc;
   font-weight: 600;
-  margin: 12px 0;
-  padding-left: 8px;
+  margin: 16px 0;
+  padding-left: 10px;
   border-left: 3px solid #5a8ed6;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.02); /* 低調的背景強化 */
 }
 
 .post-content h5 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: #b0b4bc;
-  font-weight: 500;
-  margin: 10px 0;
+  font-weight: 600;
+  margin: 14px 0;
   border-bottom: 1px dashed #909090;
-  padding-bottom: 3px;
+  padding-bottom: 4px;
 }
 
 .post-content h6 {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #a0a4ac;
-  font-weight: 500;
-  margin: 8px 0;
-  padding-left: 6px;
+  font-weight: 600;
+  margin: 12px 0;
+  padding-left: 8px;
   border-left: 2px solid #4a7ec6;
-  font-style: italic;
+  font-style: normal;
+  opacity: 0.9;
 }
 
 .post-content p {
