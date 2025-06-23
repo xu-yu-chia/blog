@@ -204,3 +204,56 @@ body {
   margin-right: 4px;
   color: #888;               /* 與標籤主色有區別的小細節 */
 }
+
+
+#toc-sidebar {
+  position: sticky;
+  top: 100px;
+  height: 70vh;
+  overflow-y: auto;
+  background: #18181b;
+  border-radius: 10px;
+  padding: 18px 10px;
+  min-width: 180px;
+  max-width: 230px;
+  font-size: 0.97rem;
+  z-index: 10;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.19);
+}
+
+#toc {
+  font-size: 0.97em;
+  line-height: 1.5;
+}
+
+#toc a {
+  color: #a5b4fc;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+#toc a:hover {
+  color: #f472b6;
+  text-decoration: underline;
+}
+
+/* toc 層級縮排 */
+#toc .toc-list {
+  list-style: none;
+  padding-left: 0.8em;
+}
+#toc .toc-list-item {
+  margin: 4px 0;
+}
+#toc .toc-list .toc-list {
+  margin-left: 1em;
+  border-left: 2px solid #333;
+  padding-left: 10px;
+}
+
+/* 手機隱藏側邊 TOC */
+@media (max-width: 900px) {
+  #toc-sidebar {
+    display: none;
+  }
+}
+
