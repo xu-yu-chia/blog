@@ -218,7 +218,10 @@ body {
   max-width: 230px;
   font-size: 0.97rem;
   z-index: 10;
+    scrollbar-width: thin;
+  scrollbar-color: #444 #222;
   box-shadow: 0 2px 14px rgba(0,0,0,0.19);
+    
 }
 
 #toc {
@@ -248,6 +251,19 @@ body {
   margin-left: 1em;
   border-left: 2px solid #333;
   padding-left: 10px;
+}
+
+#toc-sidebar::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+  border-radius: 8px;
+}
+#toc-sidebar::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 8px;
+}
+#toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 /* 手機隱藏側邊 TOC */
