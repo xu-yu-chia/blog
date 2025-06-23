@@ -18,6 +18,45 @@ document.body.addEventListener('click', (e) => {
     ripple.style.top = `${e.pageY - size / 2}px`;
     setTimeout(() => ripple.remove(), 400);
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // 確認 Tocbot 已渲染
+  const tocListItems = document.querySelectorAll('#toc .toc-list > .toc-list-item');
+
+  // 取得所有正文中的 H2
+  const h2s = document.querySelectorAll('.post-content h2');
+
+  // 幫每個 H2 加一個 data-h2-index，方便對應目錄
+  h2s.forEach((h2, idx) => {
+    h2.setAttribute('data-h2-index', idx);
+  });
+
+  // 建立 Intersection Observer，監控每個 H2 進入視窗
+  let currentActive = null;
+  const observer = new IntersectionObserver((entries) => {
+    // 找到目前畫面最上面的 h2
+    let minTop = Infinity, activeIdx = 0;
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.boundingClientRect.top >= 0 && entry.boundingClientRect.top < minTop) {
+        minTop = entry.boundingClientRect.top;
+        activeIdx = parseInt(entry.target.getAttribute('data-h2-index'));
+      }
+    });
+    // 清除所有 is-active-li
+    tocListItems.forEach(li => li.classList.remove('is-active-li'));
+    // 設定目前 active 的目錄
+    if (tocListItems[activeIdx]) {
+      tocListItems[activeIdx].classList.add('is-active-li');
+    }
+  }, {
+    root: null,
+    threshold: 0, // 只要進入視窗就觸發
+  });
+
+  h2s.forEach(h2 => observer.observe(h2));
+});
 /*
 // 監聽超連結的點擊事件
 document.querySelectorAll('a[href^="#"]').forEach(link => {
