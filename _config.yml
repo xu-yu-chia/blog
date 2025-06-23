@@ -8,6 +8,7 @@ markdown: kramdown
 kramdown:
   input: GFM   # 啟用 GitHub Flavored Markdown，增加語法相容性
   hard_wrap: true
+  math_engine: mathjax
   syntax_highlighter: rouge
   toc_levels: 2..4  # 設定要顯示的標題層級 (H2 ~ H4)
 
