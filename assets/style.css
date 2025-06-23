@@ -239,19 +239,38 @@ body {
   text-decoration: underline;
 }
 
-/* toc 層級縮排 */
-#toc .toc-list {
-  list-style: none;
-  padding-left: 0.8em;
-}
-#toc .toc-list-item {
-  margin: 4px 0;
-}
+/* 🟢 預設 H3 摺疊（H2 子目錄都收起來） */
 #toc .toc-list .toc-list {
-  margin-left: 1em;
-  border-left: 2px solid #333;
-  padding-left: 10px;
+  display: none;
 }
+
+/* 🟢 滑鼠移上 H2（.toc-list-item），或該區塊 active，自動展開 H3 */
+#toc .toc-list-item:hover > .toc-list,
+#toc .is-active-li > .toc-list {
+  display: block;
+  background: #1c1c22;
+  border-radius: 8px;
+  padding: 3px 0 3px 7px;
+  position: relative;
+  z-index: 2;
+}
+
+/* H3 子項更明顯縮排（可選） */
+#toc .toc-list .toc-list .toc-list-item {
+  margin-left: 10px;
+}
+
+/* H2 目錄項 hover 樣式（可自訂） */
+#toc .toc-link:hover {
+  color: #7dd3fc;
+  background: #23232b;
+  border-radius: 5px;
+}
+
+#toc .toc-list .toc-list {
+  transition: all 0.2s;
+}
+
 
 #toc-sidebar::-webkit-scrollbar {
   width: 8px;
