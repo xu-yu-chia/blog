@@ -46,22 +46,27 @@
         </nav>
     </header>
     
-    <!-- 主內容 -->
-    <main class="max-w-6xl mx-auto p-8">
-        
-
-        <!-- 🚩 新增標籤區塊 -->
-        {% if page.tags %}
-            <div class="post-tags mt-4">
-                <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
-                {% for tag in page.tags %}
-                    <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
-                {% endfor %}
-            </div>
-        {% endif %}
-        <br>
-        {{ content }}
-    </main>
+    <!-- 主內容和側邊目錄 -->
+    <div class="flex max-w-6xl mx-auto p-8 gap-8">
+        <!-- 🚩 左側 TOC 區塊 -->
+        <aside id="toc-sidebar" class="hidden md:block w-64">
+            <h3 class="text-lg font-bold mb-2 text-gray-300">目錄</h3>
+            <div id="toc"></div>
+        </aside>
+        <!-- 主內容 -->
+        <main id="main-content" class="flex-1 post-content">
+            {% if page.tags %}
+                <div class="post-tags mt-4">
+                    <h3 class="text-lg font-semibold text-gray-300">標籤：</h3>
+                    {% for tag in page.tags %}
+                        <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br>
+            {{ content }}
+        </main>
+    </div>
 
 
 
@@ -72,6 +77,19 @@
         <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
+
+    <!-- Tocbot 產生 TOC 的 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tocbot.init({
+          tocSelector: '#toc',
+          contentSelector: '.post-content',
+          headingSelector: 'h1, h2, h3, h4, h5, h6',
+          collapseDepth: 6
+        });
+      });
+    </script>
                               
     
 </body>
