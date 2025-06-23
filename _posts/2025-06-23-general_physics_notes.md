@@ -28,7 +28,8 @@ hidden: false
 
 ## 物理常數與重要符號
 
-- $\epsilon_0$：真空介電常數，$\epsilon_0 = 8.85 \times 10^{-12}\ \mathrm{F\,m^{-1}}$
+- $$\epsilon_0$$：
+  真空介電常數，$$\epsilon_0 = 8.85 \times 10^{-12}\ \mathrm{F\,m^{-1}}$$
 - $\mu_0$：真空磁導率，$\mu_0 = 4\pi \times 10^{-7}\ \mathrm{N\,A^{-2}}$
 - $c$：光速，$c = 3.00 \times 10^8\ \mathrm{m/s}$
 - $k_e$：庫倫常數，$k_e = \frac{1}{4\pi \epsilon_0} = 8.99 \times 10^9\ \mathrm{N\,m^2\,C^{-2}}$
