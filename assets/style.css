@@ -266,6 +266,12 @@ body {
   background: #666;
 }
 
+/* 隱藏 content 內的文章標題 h1 */
+.post-content .post-title {
+  display: none;
+}
+
+
 /* 手機隱藏側邊 TOC */
 @media (max-width: 900px) {
   #toc-sidebar {
