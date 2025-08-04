@@ -50,6 +50,6 @@ hidden: false
 (不用再浪費時間講解情形
 願意聽你講話安慰你或給意見的人
 (看你喜歡被灌雞湯還是聽實用意見
-<img src="{{ site.baseurl }}/picture/change_1.png" alt="A女thread-1" width="300">
+<img src="{{ site.baseurl }}/picture/change_1.png" alt="負循環流程圖" width="300">
 
 
