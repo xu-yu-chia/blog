@@ -1,8 +1,4 @@
----
-title: "轉系建議"
-date: 2025-08-04
-hidden: false
----
+# 轉系經驗談
 
 ## 注意事項
 1. 這些是我的方法但不一定適用於每一個人請斟酌參考
@@ -50,6 +46,19 @@ hidden: false
 (不用再浪費時間講解情形
 願意聽你講話安慰你或給意見的人
 (看你喜歡被灌雞湯還是聽實用意見
-<img src="{{ site.baseurl }}/picture/change_1.png" alt="負循環流程圖" width="600">
 
+```flow
+
+st=>start: 考試
+bad=>operation: 考試考不好
+goal=>operation: 沒達成目標
+feel=>operation: 覺得讀書沒用
+no_motivation=>operation: 不想讀書 / 讀不下書
+worse=>operation: 準備狀態更差
+loop=>condition: 去找人傾訴情緒
+
+st(left)->bad->goal->feel->no_motivation(right)->loop
+loop(no)->bad
+
+```
 
