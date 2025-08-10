@@ -7,6 +7,7 @@ markdown: kramdown
 
 kramdown:
   input: GFM   # 啟用 GitHub Flavored Markdown，增加語法相容性
+  parse_block_html: true     # ← 讓 HTML 區塊內的 Markdown 也會被解析（縮排/清單不會消失）
   hard_wrap: true
   math_engine: mathjax
   syntax_highlighter: rouge
@@ -20,3 +21,6 @@ collections:
 
 permalink: /:year/:month/:day/:title/
 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
