@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
+    <title>Xu Yu-Chia's Blog</title>
+    <link rel="stylesheet" href="/blog/assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/blog/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-QSY25GH998');
+    </script>
+    </head>
+    
+
+    
+<body class="bg-gray-950 text-gray-200">
+    <!-- 頂部導航欄 -->
+    
+    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold"><a href ="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+            <ul class="flex space-x-6">
+                <li><a href="https://xu-yu-chia.github.io/#about" class="hover:text-gray-400"><i class="fa fa-address-card"> About Me</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#projects" class="hover:text-gray-400"><i class="fa fa-folder-open"> Projects</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-400"><i class="fas fa-pen"> Blogs</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#sports_record" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- 主內容和側邊目錄 -->
+    <div class="flex max-w-6xl mx-auto p-8 gap-8">
+        <!-- 🚩 左側 TOC 區塊 -->
+        <aside id="toc-sidebar" class="hidden md:block w-64">
+            <h3 class="text-lg font-bold mb-2 text-gray-300">目錄</h3>
+            <div id="toc"></div>
+        </aside>
+        <!-- 主內容 -->
+        <main id="main-content" class="flex-1 post-content">
+            <h1>學習歷程-APCS解題筆記</h1>
+            
+                <div class="post-tags mt-4">
+                    <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
+                    
+                        <a href="/blog/tags/%E7%A8%8B%E5%BC%8F/" class="tag">程式</a>
+                    
+                        <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+                    
+                </div>
+            
+            <br>
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">學習歷程-APCS解題筆記</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-02-02T00:00:00+08:00" itemprop="datePublished">Feb 2, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="學習歷程-apcs解題筆記">學習歷程-APCS解題筆記</h1>
+
+<h2 id="2016年03月-1-成績指標">2016年03月 1. 成績指標</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=b964</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>輸入分數</li>
+  <li>用sort排列</li>
+  <li>用迴圈判斷最大不及格值和最小及格值</li>
+  <li>輸出答案</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>不知如何儲存最小即格和最大不及格,最後用他們和”及格分數60的差”去比大小來更新最大最小值</li>
+  <li>在測試是測資時發現,忘了把加減60後的值還原成原本的分數</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    int n,high=41,low=61;
+    cin&gt;&gt;n;
+    int a[n];
+    for(int i=0;i&lt;n;i++)
+        cin&gt;&gt;a[i];
+    sort(a,a+n);
+    for(int i=0;i&lt;n;i++)
+        cout&lt;&lt;a[i]&lt;&lt;" ";
+    cout&lt;&lt;'\n';
+    for(int i=0;i&lt;n;i++){
+        if(a[i]&lt;60){
+            low=min(low,60-a[i]);
+        }
+        else{
+            high=min(high,a[i]-60);
+        }
+    }
+    if(low==61)
+        cout&lt;&lt;"best case"&lt;&lt;'\n';
+    else
+        cout&lt;&lt;60-low&lt;&lt;'\n';
+    if(high==41)
+        cout&lt;&lt;"worst case"&lt;&lt;'\n';
+    else
+        cout&lt;&lt;high+60&lt;&lt;'\n';
+    
+
+}
+
+</code></pre>
+<h2 id="2016年10月-1-三角形辨別">2016年10月 1. 三角形辨別</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=c294</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>因為要用sort,所以用陣列去儲存三角形的邊</li>
+  <li>用sort做完排序並輸出</li>
+  <li>先判斷是否為三角形,在判斷是甚麼種類的三角形,並輸出</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>原本要用三個變數儲存邊長,但是發現要排序所以只能用陣列</li>
+  <li>一開始忘記先判斷是否為三角形,再判斷種類,造成測試時錯誤</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int unsigned long long
+using namespace std;
+
+signed main()
+{
+    int a[3],A,B,C;
+    cin&gt;&gt;a[0]&gt;&gt;a[1]&gt;&gt;a[2];
+    sort(a,a+3);
+    cout&lt;&lt;a[0]&lt;&lt;" "&lt;&lt;a[1]&lt;&lt;" "&lt;&lt;a[2]&lt;&lt;'\n';
+    A=a[0]*a[0];
+    B=a[1]*a[1];
+    C=a[2]*a[2];
+    if(a[0]+a[1]&gt;a[2]){
+        if(A+B==C)
+            cout&lt;&lt;"Right"&lt;&lt;'\n';
+        else if(A+B&gt;C)
+            cout&lt;&lt;"Acute"&lt;&lt;'\n';
+        else if(A+B&lt;C)
+            cout&lt;&lt;"Obtuse"&lt;&lt;'\n';
+    }
+    else
+        cout&lt;&lt;"No"&lt;&lt;'\n';
+    
+}
+</code></pre>
+
+<h2 id="2017年03月-1-秘密差">2017年03月 1. 秘密差</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=c290</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>用字串的方式儲存數字,因為數字最多有1000位數</li>
+  <li>一一把每一位切出來,並存在A,B</li>
+  <li>用比大小的方式去用”A和B的最大值-A和B的最小值”得到絕對值的功用,因為系統版本不支援”abs(a,b)”</li>
+  <li>輸出答案</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>一開始我用可以存最大正數的”unsigned long long”,但還是不足1000位數,所以我就想到用字串的方式去儲存</li>
+  <li>因為Zero-Judge的編譯器C++ 14不支援abs(a,b),所以只能用”max(a,b)-min(a,b)”</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+<pre><code class="language-cpp=">#include&lt;bits/stdc++.h&gt;
+#define int unsigned long long
+using namespace std;
+signed main(){
+    ios::sync_with_stdio(0);
+    int A = 0, B = 0;
+    string s;
+    cin &gt;&gt; s;
+    for (int i=0; i&lt;s.size(); i++){
+        if (i % 2){
+            B+= s[i]-'0';
+        } else {
+            A+= s[i]-'0';
+        }
+    }
+    
+    cout&lt;&lt;max(A,B)-min(A,B)&lt;&lt;'\n';
+}
+</code></pre>
+
+<h2 id="2017年10月-1-邏輯運算子">2017年10月 1. 邏輯運算子</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=c461</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>直接用三個變數儲存數字</li>
+  <li>在判斷是否符合AND,OR,XOR</li>
+  <li>輸出答案</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>因為剛好在練習使用void,在過程中,我忘了呼叫,所以還要多加熟悉</li>
+  <li>因為xor不等價於!or,所以只能自己判斷</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+
+
+void solve(int x,int y,int z)
+{
+    int p;
+    if((x==0&amp;&amp;y!=0)||(x!=0&amp;&amp;y==0))
+        p=1;
+    else
+        p=0;
+    int s=x and y,o=x or y;
+    if(s==z ||o==z || p==z)
+        {
+        if(s==z)
+            cout&lt;&lt;"AND"&lt;&lt;'\n';
+        if(o==z)
+            cout&lt;&lt;"OR"&lt;&lt;'\n';
+        if(p==z)
+            cout&lt;&lt;"XOR"&lt;&lt;'\n';
+        }
+    else
+        cout&lt;&lt;"IMPOSSIBLE"&lt;&lt;'\n';
+
+}
+
+signed main()
+{
+    int a,b,c;
+    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+    solve(a,b,c);
+}
+</code></pre>
+
+<h2 id="2020年10月-1-人力分配">2020年10月 1. 人力分配</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=f312</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>用多個變數儲存二元方程式的係數和人數</li>
+  <li>直接用迴圈去跑收益,再用max()去取最大值</li>
+  <li>輸出最大收益</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>再用max()去取最大值時,收益初始值一開始我先設為”0”,但是執行時NA,因為我沒考慮到收益也會負的,所以最後我把它設成long long的最小值</li>
+  <li>再用max()時,少用括號造成邏輯錯誤,要時時提醒自己括號不能省</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+
+signed main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int A,B,C,a,b,c,n,y=-LONG_LONG_MAX,p;
+    cin&gt;&gt;A&gt;&gt;B&gt;&gt;C&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;n;
+    for(int i=0;i&lt;=n;i++){
+        p=n-i;
+        y=max(y,((A*p*p+B*p+C)+(a*i*i+b*i+c)));
+    }
+    cout&lt;&lt;y&lt;&lt;'\n';
+}
+</code></pre>
+
+<h2 id="2021年09月-1-七言對聯">2021年09月 1. 七言對聯</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=g275</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>輸入對聯</li>
+  <li>分別判斷三個條件並用布林值儲存</li>
+  <li>綜合以上判斷是否符規則</li>
+  <li>輸出A,B,C或是nope</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>要用三維陣列,對不太熟悉陣列的我是一大難題</li>
+  <li>條件判斷,就是一一把條件轉為程式碼,但是當我判斷完時卻不知道要如何儲存”ture”和”false”,所以又多開一個布林值,方便最後判斷</li>
+  <li>在測試測資時,我發現答案竟然全錯,我想了很久終於想到:在陣列中元素是從”0”開始,所以一句的最後一個字不是索引值”7”,而是”6”</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+
+signed main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    int n;
+    cin&gt;&gt;n;
+    int a[n][2][7];
+    bool A[2],B=false,C=false;
+    A[0]=false;
+    A[1]=false;
+
+    for(int i=0;i&lt;n;i++){
+        for(int j=0;j&lt;2;j++){
+            for(int k=0;k&lt;7;k++){
+                cin&gt;&gt;a[i][j][k];
+            }
+        }
+    }
+    for(int i=0;i&lt;n;i++){
+        for(int g=0;g&lt;2;g++){
+            if(a[i][g][1]!=a[i][g][3] &amp;&amp; a[i][g][1]==a[i][g][5])
+                A[g]=true;
+        }
+        if(a[i][0][6]==1 &amp;&amp; a[i][1][6]==0)
+            B=true;
+        if(a[i][0][1]!=a[i][1][1] &amp;&amp; 
+           a[i][0][3]!=a[i][1][3] &amp;&amp; a[i][0][5]!=a[i][1][5])
+            C=true;
+
+        if(A[0]==false || A[1]==false)
+            cout&lt;&lt;"A";
+        if(B==false)
+            cout&lt;&lt;"B";
+        if(C==false)
+            cout&lt;&lt;"C";
+        if(A[0]==true &amp;&amp;A[1]==true&amp;&amp;B==true&amp;&amp;C==true)
+            cout&lt;&lt;"None";
+        cout&lt;&lt;'\n';
+        A[0]=false;
+        A[1]=false;
+        B=false;
+        C=false;
+    }
+
+}
+
+
+</code></pre>
+
+<h2 id="2021年11月-1-修補圍籬">2021年11月 1. 修補圍籬</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=g595</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>先以陣列儲存圍籬長度</li>
+  <li>用迴圈邊修補圍籬邊更新修補所需的成本</li>
+  <li>輸出最後更新完的成本</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>在判斷是否為頭尾時,因為<code class="language-plaintext highlighter-rouge">if</code>忘了加<code class="language-plaintext highlighter-rouge">else</code>所以造成成本的質一直亂迴圈,所以debug很久</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int long long
+
+using namespace std;
+
+signed main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int n,mon=0;
+    cin&gt;&gt;n;
+    int a[n];
+    for(int i=0;i&lt;n;i++)
+        cin&gt;&gt;a[i];
+    for(int i=0;i&lt;n;i++){
+        if(a[i]==0){
+            if(i==0)
+            {
+                a[i]=a[i+1];
+                mon+=a[i];
+            }
+            else if(i==n-1)
+            {
+                a[i]=a[i-1];
+                mon+=a[i];
+            }
+            else
+            {
+                a[i]=min(a[i+1],a[i-1]);
+                mon+=a[i];
+            }
+        }
+    }
+    cout&lt;&lt;mon&lt;&lt;'\n';
+}
+</code></pre>
+
+<h2 id="2022年06月-1-數字遊戲">2022年06月 1. 數字遊戲</h2>
+<p>https://zerojudge.tw/ShowProblem?problemid=i399</p>
+
+<p><strong>解題思路:</strong></p>
+<ol>
+  <li>先以三個變數儲存數字</li>
+  <li>分出是三同、兩同、全不同</li>
+  <li>輸出最多相同個數和排大小輸出</li>
+</ol>
+
+<p><strong>遇到的困境:</strong></p>
+<ol>
+  <li>在判斷相同個數時要先判斷三同,再來在判斷全部都不同,剩下的就是兩同,因為在排序後,兩同會有兩種可能</li>
+  <li>在用<code class="language-plaintext highlighter-rouge">if</code>時忘了把算數運算子轉成關係運算子</li>
+</ol>
+
+<p><strong>程式碼:</strong></p>
+
+<pre><code class="language-cpp=">#include &lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+
+signed main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    int a,b,c,n[3];
+    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+    n[0]=a;
+    n[1]=b;
+    n[2]=c;
+    sort(n,n+3);
+    if(a==b&amp;&amp;b==c&amp;&amp;a==c){
+        cout&lt;&lt;"3 "&lt;&lt;a&lt;&lt;'\n';
+    }
+    else if(a!=b&amp;&amp;b!=c&amp;&amp;a!=c){
+        cout&lt;&lt;"1 "&lt;&lt;n[2]&lt;&lt;" "&lt;&lt;n[1]&lt;&lt;" "&lt;&lt;n[0];
+    }
+    else{
+        cout&lt;&lt;"2 ";
+        if(n[2]==n[1])
+            cout&lt;&lt;n[2]&lt;&lt;" "&lt;&lt;n[0]&lt;&lt;'\n';
+        else
+            cout&lt;&lt;n[2]&lt;&lt;" "&lt;&lt;n[0]&lt;&lt;'\n';
+    }
+}
+</code></pre>
+
+  </div><a class="u-url" href="/blog/2025/02/02/apcs/" hidden></a>
+</article>
+
+        </main>
+    </div>
+
+
+
+
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
+        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    </footer>
+
+    <!-- Tocbot 產生 TOC 的 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tocbot.init({
+          tocSelector: '#toc',
+          contentSelector: '.post-content',
+          headingSelector: 'h2, h3, h4',
+          collapseDepth: 1
+        });
+      });
+    </script>
+                              
+    
+</body>
+</html>

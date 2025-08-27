@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
     <title>Xu Yu-Chia's Blog</title>
-    <link rel="stylesheet" href="{{ 'assets/style.css' | relative_url }}">
+    <link rel="stylesheet" href="/blog/assets/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ '/logo.ico' | relative_url }}" type="image/x-icon">
+    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ '/script.js' | relative_url }}" defer></script>
+    <script src="/blog/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
@@ -54,17 +54,116 @@
         </aside>
         <!-- 主內容 -->
         <main id="main-content" class="flex-1 post-content">
-            <h1>{{ page.title }}</h1>
-            {% if page.tags %}
-                <div class="post-tags mt-4">
-                    <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
-                    {% for tag in page.tags %}
-                        <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+            <h1>Xu Yu-Chia's Blog</h1>
+            
             <br>
-            {{ content }}
+            <h1 id="-最新文章">📝 最新文章</h1>
+
+<div class="posts-container">
+  
+    
+  
+    
+  
+    
+      <div class="post-card">
+        <h2><a href="/blog/2025/08/04/change_major/">轉系經驗談</a></h2>
+        <p class="post-date">2025-08-04</p>
+        <p class="post-excerpt">注意事項
+
+  這些是我的方法但不一定適用於每一個人請斟酌參考
+  我盡量打得不那麼雞湯或說教
+  以下項目的順序沒有意義單純我想到甚麼打甚麼
+
+
+</p>
+          
+            <div class="post-tags">
+              
+                <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+              
+            </div>
+          
+        <br />
+        <a href="/blog/2025/08/04/change_major/" class="read-more">閱讀更多 →</a>
+      </div>
+    
+  
+    
+      <div class="post-card">
+        <h2><a href="/blog/2025/06/23/general_physics_notes/">普物下(電路學)筆記</a></h2>
+        <p class="post-date">2025-06-23</p>
+        <p class="post-excerpt">作者：NCUEE 許彧嘉  
+日期：2025/6/23
+
+</p>
+          
+            <div class="post-tags">
+              
+                <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+              
+            </div>
+          
+        <br />
+        <a href="/blog/2025/06/23/general_physics_notes/" class="read-more">閱讀更多 →</a>
+      </div>
+    
+  
+    
+  
+    
+  
+    
+      <div class="post-card">
+        <h2><a href="/blog/2025/02/03/Freshman_life_1/">大一上生活總結</a></h2>
+        <p class="post-date">2025-02-03</p>
+        <p class="post-excerpt">央大大一上生活總結
+
+</p>
+          
+            <div class="post-tags">
+              
+                <a href="/blog/tags/%E7%94%9F%E6%B4%BB/" class="tag">生活</a>
+              
+                <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+              
+            </div>
+          
+        <br />
+        <a href="/blog/2025/02/03/Freshman_life_1/" class="read-more">閱讀更多 →</a>
+      </div>
+    
+  
+    
+      <div class="post-card">
+        <h2><a href="/blog/2025/02/02/apcs/">學習歷程-APCS解題筆記</a></h2>
+        <p class="post-date">2025-02-02</p>
+        <p class="post-excerpt">學習歷程-APCS解題筆記
+
+</p>
+          
+            <div class="post-tags">
+              
+                <a href="/blog/tags/%E7%A8%8B%E5%BC%8F/" class="tag">程式</a>
+              
+                <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+              
+            </div>
+          
+        <br />
+        <a href="/blog/2025/02/02/apcs/" class="read-more">閱讀更多 →</a>
+      </div>
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+
         </main>
     </div>
 

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
+    <title>Xu Yu-Chia's Blog</title>
+    <link rel="stylesheet" href="/blog/assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/blog/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-QSY25GH998');
+    </script>
+    </head>
+    
+
+    
+<body class="bg-gray-950 text-gray-200">
+    <!-- 頂部導航欄 -->
+    
+    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold"><a href ="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+            <ul class="flex space-x-6">
+                <li><a href="https://xu-yu-chia.github.io/#about" class="hover:text-gray-400"><i class="fa fa-address-card"> About Me</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#projects" class="hover:text-gray-400"><i class="fa fa-folder-open"> Projects</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-400"><i class="fas fa-pen"> Blogs</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#sports_record" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- 主內容和側邊目錄 -->
+    <div class="flex max-w-6xl mx-auto p-8 gap-8">
+        <!-- 🚩 左側 TOC 區塊 -->
+        <aside id="toc-sidebar" class="hidden md:block w-64">
+            <h3 class="text-lg font-bold mb-2 text-gray-300">目錄</h3>
+            <div id="toc"></div>
+        </aside>
+        <!-- 主內容 -->
+        <main id="main-content" class="flex-1 post-content">
+            <h1>普物下(電路學)筆記</h1>
+            
+                <div class="post-tags mt-4">
+                    <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
+                    
+                        <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+                    
+                </div>
+            
+            <br>
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">普物下(電路學)筆記</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-06-23T00:00:00+08:00" itemprop="datePublished">Jun 23, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>作者：NCUEE 許彧嘉  <br />
+日期：2025/6/23</p>
+
+<hr />
+
+<h2 id="物理常數與重要符號">物理常數與重要符號</h2>
+
+<ul>
+  <li>\(\epsilon_0\)：真空介電常數，\(\epsilon_0 = 8.85 \times 10^{-12}\ \mathrm{F\,m^{-1}}\)</li>
+  <li>\(\mu_0\)：真空磁導率，\(\mu_0 = 4\pi \times 10^{-7}\ \mathrm{N\,A^{-2}}\)</li>
+  <li>\(c\)：光速，\(c = 3.00 \times 10^8\ \mathrm{m/s}\)</li>
+  <li>\(k_e\)：庫倫常數，\(k_e = \frac{1}{4\pi \epsilon_0} = 8.99 \times 10^9\ \mathrm{N\,m^2\,C^{-2}}\)</li>
+  <li>\(q\)：電荷量，單位：\(\mathrm{C}\)</li>
+  <li>\(I\)：電流，單位：\(\mathrm{A}\)</li>
+  <li>\(V\)：電壓或電勢差，單位：\(\mathrm{V}\)</li>
+  <li>\(R\)：電阻，單位：\(\Omega\)</li>
+  <li>\(C\)：電容，單位：\(\mathrm{F}\)</li>
+  <li>\(L\)：電感，單位：\(\mathrm{H}\)</li>
+  <li>\(B\)：磁場，單位：\(\mathrm{T}\)</li>
+  <li>\(E\)：電場，單位：\(\mathrm{V\,m^{-1}}\)</li>
+  <li>\(A\)：截面積或向量面積</li>
+  <li>\(\Phi_B\)：磁通量</li>
+  <li>\(\mathcal{E}\)：感應電動勢</li>
+  <li>\(n\)：單位體積帶電粒子數密度／螺線管單位長度圈數（依情境）</li>
+  <li>\(N\)：總圈數</li>
+</ul>
+
+<hr />
+
+<h2 id="易混淆觀念小提醒">易混淆觀念小提醒</h2>
+
+<ul>
+  <li><strong>感應電動勢 \(\mathcal{E}\) 與端電壓 \(V\)</strong>：\(\mathcal{E}\) 指閉合路徑上的總感應電動勢，端電壓 \(V\) 為元件兩端的電壓，兩者含義不同。</li>
+  <li><strong>線圈圈數 \(n\) vs. \(N\)</strong>：\(n\) 表示「單位長度」圈數（如螺線管），\(N\) 表示「總圈數」。</li>
+  <li><strong>電流方向與電子運動方向相反</strong>：計算時以「正電荷流動方向」為正。</li>
+  <li><strong>向量公式注意</strong>：\(\vec{F} = q(\vec{v} \times \vec{B})\) 為向量叉積，方向由右手定則判斷。</li>
+</ul>
+
+<hr />
+
+<h2 id="基本公式與定義">基本公式與定義</h2>
+
+<h3 id="電流密度導體">電流密度、導體</h3>
+
+\[J = \frac{I}{A}\]
+
+\[I = n q v_d A\]
+
+<ul>
+  <li>\(n\)：單位體積內帶電粒子數量</li>
+  <li>\(v_d\)：漂移速度</li>
+</ul>
+
+<h3 id="電阻">電阻</h3>
+
+\[R = \rho \frac{l}{A}\]
+
+\[V = IR\]
+
+<h3 id="歐姆定律">歐姆定律</h3>
+
+\[I = \frac{V}{R}\]
+
+<h3 id="磁場與帶電粒子運動">磁場與帶電粒子運動</h3>
+
+\[\vec{F} = q(\vec{v} \times \vec{B})\]
+
+\[r = \frac{mv}{qB}\]
+
+<ul>
+  <li>圓周運動週期：\(T = \frac{2\pi m}{qB}\)</li>
+  <li>螺旋線 pitch：\(\text{Pitch} = v_{\parallel} T = v_{\parallel} \cdot \frac{2\pi m}{qB}\)</li>
+</ul>
+
+<h3 id="磁場與安培定律">磁場與安培定律</h3>
+
+\[\oint \vec{B} \cdot d\vec{\ell} = \mu_0 I_{\text{enc}}\]
+
+<h3 id="磁場單位">磁場單位</h3>
+
+\[1~\mathrm{T} = 1~\frac{\mathrm{N}}{\mathrm{A}\cdot\mathrm{m}}\]
+
+<h3 id="通電導線螺線管環形線圈磁場">通電導線／螺線管／環形線圈磁場</h3>
+
+<ul>
+  <li>直線電流：\(B = \frac{\mu_0 I}{2\pi r}\)</li>
+  <li>圓形電流迴路中心：\(B = \frac{\mu_0 I}{2R}\)</li>
+  <li>長螺線管：\(B = \mu_0 n I\)</li>
+  <li>環形線圈（Toroid）：\(B = \frac{\mu_0 N I}{2\pi r}\)</li>
+</ul>
+
+<h3 id="電磁感應法拉第定律與楞次定律">電磁感應（法拉第定律與楞次定律）</h3>
+
+\[\mathcal{E} = -\frac{d\Phi_B}{dt}\]
+
+\[U = -N \frac{d\Phi_B}{dt}\]
+
+\[\Phi_B = \int \vec{B} \cdot d\vec{A}\]
+
+<ul>
+  <li><strong>楞次定律</strong>：感應電流方向總是反抗磁通量變化。</li>
+</ul>
+
+<h3 id="自感與電感inductor">自感與電感（Inductor）</h3>
+
+\[L = \frac{N\Phi_B}{I}\]
+
+\[L = \frac{\mu_0 N^2 A}{l}\]
+
+\[\mathcal{E}_L = -L\frac{dI}{dt}\]
+
+\[U_B = \frac{1}{2} L I^2\]
+
+<h3 id="電容儲存能量">電容、儲存能量</h3>
+
+\[Q = CV\]
+
+\[U_C = \frac{1}{2} C V^2\]
+
+<hr />
+
+<h2 id="電路rlrclcrlc-電路">電路：RL、RC、LC、RLC 電路</h2>
+
+<h3 id="rc電路">RC電路</h3>
+
+<ul>
+  <li><strong>充電：</strong><br />
+\(q(t) = CV \left(1 - e^{-t/RC}\right)\)<br />
+\(i(t) = \frac{V}{R} e^{-t/RC}\)</li>
+  <li><strong>放電：</strong><br />
+\(q(t) = Q_0 e^{-t/RC}\)<br />
+\(i(t) = -\frac{Q_0}{RC} e^{-t/RC}\)</li>
+  <li><strong>電容儲存能量：</strong> \(U_C = \frac{1}{2}CV^2\)</li>
+</ul>
+
+<h3 id="rl電路">RL電路</h3>
+
+<ul>
+  <li><strong>通電：</strong><br />
+\(i(t) = \frac{V}{R}(1 - e^{-t/\tau}),\quad \tau = \frac{L}{R}\)</li>
+  <li><strong>斷電：</strong><br />
+\(i(t) = I_0 e^{-t/\tau}\)</li>
+  <li><strong>電感儲存能量：</strong> \(U_L = \frac{1}{2} L I^2\)</li>
+</ul>
+
+<h3 id="lc-與-rlc-電路">LC 與 RLC 電路</h3>
+
+\[\text{LC:}\quad Q = Q_0 \cos(\omega t + \phi),\quad \omega = \frac{1}{\sqrt{LC}}\]
+
+\[\text{RLC:}\quad Q = Q_0 e^{-\gamma t} \cos(\omega' t + \phi)\]
+
+\[\gamma = \frac{R}{2L}\]
+
+\[\omega' = \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2}\]
+
+<ul>
+  <li>RLC分類：
+    <ul>
+      <li>欠阻尼：\(\omega' &gt; 0\)</li>
+      <li>臨界阻尼：\(\omega' = 0\)</li>
+      <li>過阻尼：\(\omega' &lt; 0\)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="串聯與並聯電阻">串聯與並聯電阻</h3>
+
+<ul>
+  <li><strong>串聯：</strong> \(R_{\text{eq}} = R_1 + R_2 + \cdots\)</li>
+  <li><strong>並聯：</strong> \(\frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots\)</li>
+</ul>
+
+<hr />
+
+<h2 id="交流電路與阻抗">交流電路與阻抗</h2>
+
+<h3 id="交流電壓">交流電壓</h3>
+
+\[V(t) = V_{\text{max}} \sin(\omega t)\]
+
+<h3 id="電容元件">電容元件</h3>
+
+\[V_C = V_{\text{max}} \sin(\omega t)\]
+
+\[q_C = CV_{\text{max}} \sin(\omega t)\]
+
+\[i_C = \frac{dq}{dt} = \omega C V_{\text{max}} \cos(\omega t)\]
+
+\[X_C = \frac{1}{\omega C}\]
+
+\[I_{\text{max}} = \frac{V_{\text{max}}}{X_C}\]
+
+<h3 id="電感元件">電感元件</h3>
+
+\[V_L = L \frac{di}{dt}\]
+
+\[X_L = \omega L\]
+
+\[I_{\text{max}} = \frac{V_{\text{max}}}{X_L}\]
+
+<h3 id="rlc並聯">RLC並聯</h3>
+
+\[V_{\text{max}}^2 = (I_{\text{max}} R)^2 + (I_{\text{max}} X_L - I_{\text{max}} X_C)^2\]
+
+\[X = \sqrt{X_L^2 + X_C^2}\]
+
+<h3 id="相位關係">相位關係</h3>
+
+<ul>
+  <li>\(X_L &gt; X_C\)：電流落後電壓（感性）</li>
+  <li>\(X_L = X_C\)：電流與電壓同相（共振）</li>
+  <li>\(X_L &lt; X_C\)：電流超前電壓（容性）</li>
+</ul>
+
+<hr />
+
+<h2 id="靜電學與高斯定律">靜電學與高斯定律</h2>
+
+<h3 id="庫倫定律">庫倫定律</h3>
+
+\[F = k_e \frac{|q_1 q_2|}{r^2},\quad k_e = \frac{1}{4\pi \epsilon_0} = 8.99\times 10^9~\mathrm{N\,m^2\,C^{-2}}\]
+
+<h3 id="電場與電勢">電場與電勢</h3>
+
+\[E = \frac{F}{q} = k_e \frac{|q|}{r^2}\]
+
+\[V = k_e \frac{q}{r}\]
+
+\[\vec{E} = -\nabla V\]
+
+\[\Delta V = -\int_{A}^{B} \vec{E} \cdot d\vec{\ell}\]
+
+<h3 id="高斯定律">高斯定律</h3>
+
+\[\oint \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\epsilon_0}\]
+
+<h3 id="導體性質">導體性質</h3>
+
+<ul>
+  <li>導體內部無電場</li>
+  <li>導體表面電場垂直</li>
+  <li>導體表面為等位面</li>
+</ul>
+
+<h3 id="電容器">電容器</h3>
+
+\[Q = CV,\quad C = \epsilon_0 \frac{A}{d}\]
+
+\[U = \frac{1}{2}CV^2\]
+
+<ul>
+  <li>並聯電容：\(C_{\text{eq}} = C_1 + C_2 + \cdots\)</li>
+  <li>串聯電容：\(\frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots\)</li>
+</ul>
+
+<hr />
+
+<h2 id="麥克斯威方程組">麥克斯威方程組</h2>
+
+\[\boxed{
+\begin{aligned}
+    &amp;\text{(1) 高斯定律} &amp;&amp; \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0} \\
+    &amp;\text{(2) 無磁單極} &amp;&amp; \nabla \cdot \vec{B} = 0 \\
+    &amp;\text{(3) 法拉第電磁感應} &amp;&amp; \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} \\
+    &amp;\text{(4) 安培–馬克士威定律} &amp;&amp; \nabla \times \vec{B} = \mu_0 \vec{J} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t}
+\end{aligned}
+}\]
+
+<hr />
+
+<h2 id="常用向量微積分公式">常用向量微積分公式</h2>
+
+<ul>
+  <li>
+    <p><strong>散度定理（Gauss’s Theorem）：</strong></p>
+
+\[\int_V (\nabla \cdot \vec{A})\, dV = \oint_{\partial V} \vec{A} \cdot d\vec{A}\]
+  </li>
+  <li>
+    <p><strong>斯托克斯定理（Stokes’ Theorem）：</strong></p>
+
+\[\int_S (\nabla \times \vec{A}) \cdot d\vec{A} = \oint_{\partial S} \vec{A} \cdot d\vec{\ell}\]
+  </li>
+</ul>
+
+
+  </div><a class="u-url" href="/blog/2025/06/23/general_physics_notes/" hidden></a>
+</article>
+
+        </main>
+    </div>
+
+
+
+
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
+        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    </footer>
+
+    <!-- Tocbot 產生 TOC 的 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tocbot.init({
+          tocSelector: '#toc',
+          contentSelector: '.post-content',
+          headingSelector: 'h2, h3, h4',
+          collapseDepth: 1
+        });
+      });
+    </script>
+                              
+    
+</body>
+</html>

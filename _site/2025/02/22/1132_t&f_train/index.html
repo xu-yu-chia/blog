@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
     <title>Xu Yu-Chia's Blog</title>
-    <link rel="stylesheet" href="{{ 'assets/style.css' | relative_url }}">
+    <link rel="stylesheet" href="/blog/assets/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ '/logo.ico' | relative_url }}" type="image/x-icon">
+    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ '/script.js' | relative_url }}" defer></script>
+    <script src="/blog/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
@@ -54,17 +54,46 @@
         </aside>
         <!-- 主內容 -->
         <main id="main-content" class="flex-1 post-content">
-            <h1>{{ page.title }}</h1>
-            {% if page.tags %}
+            <h1>田徑訓練日記</h1>
+            
                 <div class="post-tags mt-4">
                     <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
-                    {% for tag in page.tags %}
-                        <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
-                    {% endfor %}
+                    
+                        <a href="/blog/tags/%E8%B7%91%E6%AD%A5/" class="tag">跑步</a>
+                    
+                        <a href="/blog/tags/%E9%81%8B%E5%8B%95/" class="tag">運動</a>
+                    
                 </div>
-            {% endif %}
+            
             <br>
-            {{ content }}
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">田徑訓練日記</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-02-22T00:00:00+08:00" itemprop="datePublished">Feb 22, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="田徑訓練日記">田徑訓練日記</h1>
+
+<h2 id="2152025">2/15/2025</h2>
+
+<p>30min LSD HR：150  <br />
+5*60m漸速跑</p>
+
+<p>LSD心率幾乎壓不下來  <br />
+平均162最高178  <br />
+跑完累死</p>
+
+<h2 id="2162025">2/16/2025</h2>
+
+<p>XXXXX</p>
+
+  </div><a class="u-url" href="/blog/2025/02/22/1132_t&f_train/" hidden></a>
+</article>
+
         </main>
     </div>
 

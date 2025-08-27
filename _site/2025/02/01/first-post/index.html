@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
     <title>Xu Yu-Chia's Blog</title>
-    <link rel="stylesheet" href="{{ 'assets/style.css' | relative_url }}">
+    <link rel="stylesheet" href="/blog/assets/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ '/logo.ico' | relative_url }}" type="image/x-icon">
+    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ '/script.js' | relative_url }}" defer></script>
+    <script src="/blog/script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
@@ -54,17 +54,37 @@
         </aside>
         <!-- 主內容 -->
         <main id="main-content" class="flex-1 post-content">
-            <h1>{{ page.title }}</h1>
-            {% if page.tags %}
+            <h1>我的第一篇文章</h1>
+            
                 <div class="post-tags mt-4">
                     <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
-                    {% for tag in page.tags %}
-                        <a href="/blog/tags/{{ tag | uri_escape }}/" class="tag">{{ tag }}</a>
-                    {% endfor %}
+                    
+                        <a href="/blog/tags/%E7%A8%8B%E5%BC%8F/" class="tag">程式</a>
+                    
+                        <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+                    
                 </div>
-            {% endif %}
+            
             <br>
-            {{ content }}
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">我的第一篇文章</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-02-01T00:00:00+08:00" itemprop="datePublished">Feb 1, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="test">test</h1>
+<p>想不到吧<br />
+大便</p>
+
+<h2 id="fsdfdf">fsdfdf</h2>
+
+  </div><a class="u-url" href="/blog/2025/02/01/first-post/" hidden></a>
+</article>
+
         </main>
     </div>
 
