@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-    
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,16 +19,18 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-QSY25GH998');
     </script>
-    </head>
-    
 
-    
-<body class="bg-gray-950 text-gray-200">
+    <!-- 新增：未解鎖前先隱藏整頁，避免內容先閃出 -->
+    <style>
+      body.locked { visibility: hidden; }
+      .msg { font: 16px/1.6 system-ui, -apple-system, "Noto Sans TC", sans-serif; padding: 24px; }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-gray-200 locked">
     <!-- 頂部導航欄 -->
-    
     <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="text-xl font-bold"><a href ="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
@@ -62,17 +61,7 @@
                 </div>
             
             <br>
-            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">吃瓜瞜</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2025-05-20T00:00:00+08:00" itemprop="datePublished">May 20, 2025
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <p><strong>拜託不要外流</strong></p>
+            <p><strong>拜託不要外流</strong></p>
 
 <h2 id="人物介紹">人物介紹</h2>
 
@@ -215,15 +204,8 @@ A男：事情都已經過去了<br />
 臭9ay</p>
 
 
-  </div><a class="u-url" href="/blog/2025/05/20/fuckss/" hidden></a>
-</article>
-
         </main>
     </div>
-
-
-
-
 
     <!-- 頁腳 -->
     <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
@@ -243,7 +225,23 @@ A男：事情都已經過去了<br />
         });
       });
     </script>
-                              
-    
+
+    <!-- 密碼驗證（明文比對：沿用你的邏輯，只配合 locked 類別） -->
+    <script>
+      (function () {
+        try {
+          var expected = "bitch"; // 若沒在 front matter 設定，會是空字串
+          var pwd = prompt("請輸入密碼：");
+
+          if (pwd !== expected) {
+            document.body.innerHTML = '<div class="msg"><h1>密碼錯誤，拒絕訪問</h1><p><a href="/">回首頁</a></p></div>';
+          } else {
+            document.body.classList.remove('locked'); // 解鎖顯示內容
+          }
+        } catch (e) {
+          document.body.innerHTML = '<div class="msg"><h1>發生錯誤</h1><pre>' + (e && e.message || e) + '</pre></div>';
+        }
+      })();
+    </script>
 </body>
 </html>

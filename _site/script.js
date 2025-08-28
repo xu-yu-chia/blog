@@ -1,6 +1,14 @@
-const viewCount = localStorage.getItem('viewCount') || Math.floor(Math.random() * 10000);  // 隨機產生 0 到 9999 的數字
-document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
-localStorage.setItem('viewCount', parseInt(viewCount) + 1);
+// === 瀏覽次數（等 DOM 準備好再執行，並檢查元素存在） ===
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('viewCount');
+  if (!el) return; // 這頁沒有 viewCount 就跳過
+
+  const prev = parseInt(localStorage.getItem('viewCount'), 10);
+  const base = Number.isFinite(prev) ? prev : Math.floor(Math.random() * 10000); // 第一次給隨機 0~9999
+  const next = base + 1;
+  el.textContent = next;
+  localStorage.setItem('viewCount', next);
+});
 
 
 
