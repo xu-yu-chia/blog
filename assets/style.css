@@ -1,319 +1,400 @@
-/* 滑鼠互動效果 */
-a:hover {
-    text-decoration: underline;
-}
-.interactive:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-.interactive {
-    transition: transform 0.2s, box-shadow 0.2s;
+:root {
+  --bg-1: #020617;
+  --bg-2: #071229;
+  --bg-3: #1a1038;
+
+  --text-main: #e5e7eb;
+  --text-sub: #94a3b8;
+
+  --brand: #fde047;
+  --accent-cyan: #22d3ee;
+  --accent-emerald: #34d399;
+  --accent-amber: #fbbf24;
+
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.15);
+  --line: rgba(255, 255, 255, 0.18);
+  --solid-panel: #111827;
+  --solid-panel-2: #0f172a;
+
+  --radius-card: 14px;
+  --header-h: 76px;
 }
 
-/* 改進的漣漪效果 */
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    position: relative;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-animation 0.4s ease-out; /* 更自然的動畫時間與效果 */
-    background: rgba(255, 255, 255, 0.2); /* 更柔和的透明度 */
-    pointer-events: none; /* 防止影響點擊事件 */
+
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 }
-@keyframes ripple-animation {
-    to {
-        transform: scale(1.5); /* 更小的漣漪大小 */
-        opacity: 0;
-    }
+
+body {
+  min-height: 100vh;
+  color: var(--text-main);
+  line-height: 1.6;
+  background: radial-gradient(1100px circle at 15% -15%, #1d4ed8 0%, transparent 45%),
+    radial-gradient(1200px circle at 95% 0%, #312e81 0%, transparent 48%),
+    linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.page-shell {
+  max-width: 1160px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.toc-sidebar {
+  display: none;
+}
+
+.post-content {
+  width: 100%;
+}
+
+.post-content > h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.2;
+  font-weight: 900;
+  color: var(--brand);
+}
+
+.post-content p,
+.post-content li {
+  font-size: 1.02rem;
+  color: var(--text-main);
 }
 
 .posts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .post-card {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(9px);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.22);
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out, filter 0.2s ease-out;
+  cursor: pointer;
 }
 
 .post-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  filter: brightness(1.04);
+}
+
+.post-card:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.7);
+  outline-offset: 2px;
+}
+
+.post-card h2 {
+  margin: 0;
+  line-height: 1.35;
+  font-size: 1.35rem;
 }
 
 .post-card h2 a {
-  color: #8ab4f8;
-  text-decoration: none;
+  color: #f8fafc;
 }
 
 .post-card h2 a:hover {
-  text-decoration: underline;
+  color: var(--brand);
 }
 
 .post-date {
-  font-size: 0.9em;
-  color: #aaaaaa;
-  margin-bottom: 10px;
+  margin: 0;
+  color: var(--accent-emerald);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }
 
 .post-excerpt {
-  margin: 15px 0;
-  line-height: 1.6;
-  color: #d0d0d0;
+  margin: 0;
+  color: var(--text-sub);
+  flex: 1;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-emerald);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-sub);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.tag::before {
+  content: "#";
+  margin-right: 3px;
+  color: var(--accent-cyan);
+}
+
+.tag:hover {
+  background: rgba(34, 211, 238, 0.14);
+  color: #d5faff;
+  border-color: rgba(34, 211, 238, 0.45);
 }
 
 .read-more {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #8ab4f8;
-  color: #1e1e1e;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  font-weight: 600;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out, filter 0.2s ease-out;
 }
 
 .read-more:hover {
-  background-color: #6a9ee6;
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.45);
+  filter: brightness(1.06);
 }
 
-
-/* 只影響文章頁面的標題樣式 */
-.post-content h1 {
-  font-size: 2.5rem;
-  color: #8ab4f8;
-  border-bottom: 2px solid #8ab4f8;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-  font-weight: 700;
+.is-post-page .page-shell {
+  grid-template-columns: 290px minmax(0, 1fr);
+  align-items: start;
 }
 
-.post-content h2 {
-  font-size: 2rem;
-  color: #e8eaed;
-  border-left: 4px solid #6a9ee6;
-  padding-left: 12px;
-  margin: 20px 0;
-  font-weight: 700;
-}
-
-.post-content h3 {
-  font-size: 1.75rem; /* 稍微加大一點 */
-  color: #d0d0d0;
-  font-weight: 700;
-  margin: 18px 0;
-  border-bottom: 1px solid #a0a0a0;
-  padding-bottom: 6px;
-}
-
-.post-content h4 {
-  font-size: 1.5rem;
-  color: #c0c4cc;
-  font-weight: 600;
-  margin: 16px 0;
-  padding-left: 10px;
-  border-left: 3px solid #5a8ed6;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.02); /* 低調的背景強化 */
-}
-
-.post-content h5 {
-  font-size: 1.3rem;
-  color: #b0b4bc;
-  font-weight: 600;
-  margin: 14px 0;
-  border-bottom: 1px dashed #909090;
-  padding-bottom: 4px;
-}
-
-.post-content h6 {
-  font-size: 1.15rem;
-  color: #a0a4ac;
-  font-weight: 600;
-  margin: 12px 0;
-  padding-left: 8px;
-  border-left: 2px solid #4a7ec6;
-  font-style: normal;
-  opacity: 0.9;
-}
-
-.post-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #cccccc;
-  margin: 10px 0;
-}
-
-/* 內文區塊背景 */
-.post-content {
-  background-color: #2b2b2b;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-  margin: 20px 0;
-}
-
-/* 📌 標籤區塊的外框 */
-.post-tags {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap; /* 讓標籤自動換行 */
-  gap: 8px;        /* 標籤之間的間距 */
-}
-
-/* 🏷️ 標籤標題樣式（例如：標籤：） */
-.post-tags h3 {
-  color: #aaa;               /* 淺灰色文字，適合暗色背景 */
-  margin-bottom: 6px;
-  font-size: 1rem;
-  font-weight: 600;          /* 加粗標題 */
-}
-
-/* 🏷️ 單一標籤的樣式 */
-.tag {
-  display: inline-block;
-  background-color: #333;    /* 深灰色背景 */
-  color: #fff;               /* 白色文字 */
-  padding: 4px 10px;         /* 內距 */
-  border-radius: 8px;        /* 圓角 */
-  font-size: 0.85em;         /* 略小的字體 */
-  text-decoration: none;     /* 移除底線 */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* 平滑的動畫效果 */
-}
-
-/* 🎯 滑鼠懸停效果 */
-.tag:hover {
-  background-color: #555;    /* 滑鼠懸停時變亮 */
-  transform: scale(1.05);    /* 略微放大效果 */
-  color: #fff;
-}
-
-/* ⭐ 可選的標籤點綴效果 */
-.tag::before {
-  content: "#";              /* 每個標籤前加上 # */
-  margin-right: 4px;
-  color: #888;               /* 與標籤主色有區別的小細節 */
-}
-
-
-#toc-sidebar {
+.is-post-page .toc-sidebar {
+  display: block;
   position: sticky;
-  top: 100px;
-  height: 70vh;
+  top: calc(var(--header-h) + 24px);
+  max-height: calc(100vh - var(--header-h) - 40px);
   overflow-y: auto;
-  background: #18181b;
-  border-radius: 10px;
-  padding: 18px 10px;
-  min-width: 300px;
-  max-width: 300px;
-  font-size: 0.97rem;
-  z-index: 10;
-    scrollbar-width: thin;
-  scrollbar-color: #444 #222;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.19);
-    
+  padding: 16px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(9px);
+}
+
+.toc-sidebar h3 {
+  margin: 0 0 12px;
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
 }
 
 #toc {
-  font-size: 0.97em;
-  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+#toc .toc-list {
+  margin: 0;
+  padding-left: 0;
+}
+
+#toc .toc-list-item {
+  list-style: none;
+}
+
+#toc .toc-link {
+  display: block;
+  padding: 2px 0;
+}
+
+#toc .toc-list .toc-list .toc-link {
+  padding-left: 14px;
+  font-size: 0.92em;
+}
+
+#toc .toc-list .toc-list .toc-list .toc-link {
+  padding-left: 28px;
+  font-size: 0.9em;
 }
 
 #toc a {
-  color: #a5b4fc;
-  transition: color 0.2s;
-  text-decoration: none;
-}
-#toc a:hover {
-  color: #f472b6;
-  text-decoration: underline;
+  color: var(--text-sub);
 }
 
-/* 🟢 預設 H3 摺疊（H2 子目錄都收起來） */
+#toc a:hover,
+#toc .is-active-link {
+  color: #ffffff;
+}
+
 #toc .toc-list .toc-list {
   display: none;
 }
 
-/* 🟢 滑鼠移上 H2（.toc-list-item），或該區塊 active，自動展開 H3 */
 #toc .toc-list-item:hover > .toc-list,
-#toc .is-active-li > .toc-list {
+#toc .is-active-li > .toc-list,
+#toc .toc-list-item.is-expanded-by-view > .toc-list {
   display: block;
-  background: #1c1c22;
+}
+
+.is-post-page .post-content {
+  padding: 28px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+  background: linear-gradient(165deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.94));
+}
+
+.post-content h2 {
+  margin: 30px 0 14px;
+  font-size: 1.8rem;
+  color: #f8fafc;
+}
+
+.post-content h3 {
+  margin: 24px 0 12px;
+  font-size: 1.4rem;
+  color: #e2e8f0;
+}
+
+.post-content h4 {
+  margin: 20px 0 10px;
+  font-size: 1.16rem;
+  color: var(--accent-cyan);
+}
+
+.post-content blockquote {
+  margin: 20px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent-amber);
+  background: rgba(251, 191, 36, 0.08);
+  color: #f7f0ce;
   border-radius: 8px;
-  padding: 3px 0 3px 7px;
-  position: relative;
-  z-index: 2;
 }
 
-/* H3 子項更明顯縮排（可選） */
-#toc .toc-list .toc-list .toc-list-item {
-  margin-left: 10px;
+.post-content pre,
+.post-content code {
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.92em;
 }
 
-/* H2 目錄項 hover 樣式（可自訂） */
-#toc .toc-link:hover {
-  color: #7dd3fc;
-  background: #23232b;
-  border-radius: 5px;
+.post-content pre {
+  overflow: auto;
+  padding: 14px;
+  border-radius: 10px;
+  background: #0b1020;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#toc .toc-list .toc-list {
-  transition: all 0.2s;
+.site-footer {
+  max-width: 1160px;
+  margin: 32px auto 0;
+  padding: 16px 20px 30px;
+  color: var(--text-sub);
+  font-size: 0.92rem;
+  text-align: center;
 }
 
-
-#toc-sidebar::-webkit-scrollbar {
-  width: 8px;
-  background: #222;
-  border-radius: 8px;
-}
-#toc-sidebar::-webkit-scrollbar-thumb {
-  background: #444;
-  border-radius: 8px;
-}
-#toc-sidebar::-webkit-scrollbar-thumb:hover {
-  background: #666;
+.site-footer p {
+  margin: 4px 0;
 }
 
-/* 隱藏 content 內的文章標題 h1 */
-.post-content .post-title {
-  display: none;
+#viewCount {
+  color: var(--accent-amber);
+  font-variant-numeric: tabular-nums;
 }
 
-
-/* 手機隱藏側邊 TOC */
-@media (max-width: 900px) {
-  #toc-sidebar {
-    display: none;
+@media (max-width: 1080px) {
+  .posts-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (max-width: 900px) {
+  :root {
+    --header-h: 68px;
+  }
 
+  .is-post-page .page-shell {
+    grid-template-columns: 1fr;
+  }
 
-/* === TOC：當前 active 及其祖先一路展開（避免只展一層） === */
-#toc .toc-list .toc-list { display: none; } /* 保持預設：子清單先收起 */
+  .is-post-page .toc-sidebar {
+    display: none;
+  }
 
-#toc .toc-list-item.is-active-li > .toc-list,
-#toc .toc-list-item.is-active-li .toc-list-item.is-active-li > .toc-list {
-  display: block;
+  .is-post-page .post-content {
+    padding: 22px;
+  }
 }
 
+@media (max-width: 720px) {
+  .posts-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
-/* 區段展開：目前所屬的 H2 目錄項一路展開 */
-#toc .toc-list-item.is-expanded-by-view > .toc-list {
-  display: block !important;
-  max-height: 9999px !important;   /* 蓋過 tocbot 的折疊高度 */
-}
-#toc .toc-list-item.is-expanded-by-view > .toc-link {
-  font-weight: 600;
+  .post-content > h1 {
+    font-size: clamp(2rem, 8vw, 2.35rem);
+  }
+
+  .post-content p,
+  .post-content li {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
 }

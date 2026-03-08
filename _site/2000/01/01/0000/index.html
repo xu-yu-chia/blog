@@ -1,70 +1,67 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-    
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
-    <title>Xu Yu-Chia's Blog</title>
-    <link rel="stylesheet" href="/blog/assets/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/blog/script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-QSY25GH998');
-    </script>
-    </head>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="分享程式、專案與生活！">
+  <title>長篇故事-1</title>
+  <link rel="stylesheet" href="/blog/assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/blog/script.js" defer></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QSY25GH998');
+  </script>
+</head>
+<body class="is-post-page">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold tracking-wide">
+        <a href="https://xu-yu-chia.github.io/#home"><i class="fa fa-home" aria-hidden="true"></i></a>
+        Xu Yu-Chia's Blog
+      </div>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="https://xu-yu-chia.github.io/about.html"><i class="fa fa-address-card" aria-hidden="true"></i> About Me</a></li>
+        <li><a href="https://xu-yu-chia.github.io/projects.html"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="/blog/"><i class="fas fa-pen" aria-hidden="true"></i> Blogs</a></li>
+        <li><a href="https://xu-yu-chia.github.io/sports_github.html"><i class="fa fa-running" aria-hidden="true"></i> Sports Record</a></li>
+        <li><a href="https://xu-yu-chia.github.io/contact.html"><i class="fa fa-phone" aria-hidden="true"></i> Contact Me</a></li>
+        <li>
+          <a href="https://drive.google.com/drive/folders/1_BK8A8wkxJxGL9JW039_7Fl54rKfsF0T?usp=sharing" aria-label="Drive">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    
-<body class="bg-gray-950 text-gray-200">
-    <!-- 頂部導航欄 -->
-    
-    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
-        <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold"><a href ="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
-            <ul class="flex space-x-6">
-                <li><a href="https://xu-yu-chia.github.io/#about" class="hover:text-gray-400"><i class="fa fa-address-card"> About Me</i></a></li>
-                <li><a href="https://xu-yu-chia.github.io/#projects" class="hover:text-gray-400"><i class="fa fa-folder-open"> Projects</i></a></li>
-                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-400"><i class="fas fa-pen"> Blogs</i></a></li>
-                <li><a href="https://xu-yu-chia.github.io/sports.html" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
-                <li><a href="https://xu-yu-chia.github.io/#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <!-- 主內容和側邊目錄 -->
-    <div class="flex max-w-6xl mx-auto p-8 gap-8">
-        <!-- 🚩 左側 TOC 區塊 -->
-        <aside id="toc-sidebar" class="hidden md:block w-64">
-            <h3 class="text-lg font-bold mb-2 text-gray-300">目錄</h3>
-            <div id="toc"></div>
-        </aside>
-        <!-- 主內容 -->
-        <main id="main-content" class="flex-1 post-content">
-            <h1>長篇故事-1</h1>
+  <div class="page-shell">
+    <aside id="toc-sidebar" class="toc-sidebar" aria-label="Table of contents">
+      <h3>CONTENTS</h3>
+      <div id="toc"></div>
+    </aside>
+
+    <main id="main-content" class="post-content">
+      
+        <div class="post-meta">
+          
+            <span class="meta-chip">2000-01-01</span>
+          
+          
             
-                <div class="post-tags mt-4">
-                    <div class="tag-title text-lg font-semibold text-gray-300">標籤：</div>
-                    
-                        <a href="/blog/tags/%E6%96%87%E7%AB%A0/" class="tag">文章</a>
-                    
-                </div>
+              <a href="/blog/tags/%E6%96%87%E7%AB%A0/" class="tag">文章</a>
             
-            <br>
-            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+          
+        </div>
+      
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">長篇故事-1</h1>
@@ -1068,7 +1065,7 @@
 
 <p>婚禮前一個月，我們終於遇到了最大的考驗——來自家庭的反對。</p>
 
-<p>他的母親打電話過來，語氣客氣卻疏離：「宥宥啊，我聽說你們打算辦戶外婚禮？我們家是比較傳統的，希望還是辦在酒店比較好。那天親戚多，風吹日曬也不太合適。」</p>
+<p>他的母親打電話過來，語氣客氣卻疏離：「我聽說你們打算辦戶外婚禮？我們家是比較傳統的，希望還是辦在酒店比較好。那天親戚多，風吹日曬也不太合適。」</p>
 
 <p>我捏著手機，手心全是汗，盡量讓聲音聽起來溫柔：「阿姨，我理解您擔心，不過這場婚禮…我跟他都希望能更自在一點。」</p>
 
@@ -1169,7 +1166,7 @@
 
 <p>如果婚禮只到這裡就結束，那就太過理想。</p>
 
-<p>在宴會開始前，他的母親突然找到我，表情有些凝重：「宥宥，我們親戚那桌沒安排到…，大家都在抱怨，你們怎麼…」</p>
+<p>在宴會開始前，他的母親突然找到我，表情有些凝重：「我們親戚那桌沒安排到…，大家都在抱怨，你們怎麼…」</p>
 
 <p>那一刻，我感覺喉嚨被什麼堵住。<br />
 所有的計劃、討論、清單，我們花了三個月的心血，可還是有人不滿。</p>
@@ -2334,32 +2331,24 @@
   </div><a class="u-url" href="/blog/2000/01/01/0000/" hidden></a>
 </article>
 
-        </main>
-    </div>
+    </main>
+  </div>
 
+  <footer class="site-footer">
+    <p>&copy; 2025 Xu Yu-Chia's Blog. All rights reserved.</p>
+    <p>Total Views: <span id="viewCount">0</span></p>
+  </footer>
 
-
-
-
-    <!-- 頁腳 -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
-        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
-        <p>瀏覽次數：<span id="viewCount">0</span></p>
-    </footer>
-
-    <!-- Tocbot 產生 TOC 的 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        tocbot.init({
-          tocSelector: '#toc',
-          contentSelector: '.post-content',
-          headingSelector: 'h2, h3, h4',
-          collapseDepth: 1
-        });
+  <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      tocbot.init({
+        tocSelector: '#toc',
+        contentSelector: '.post-content',
+        headingSelector: 'h2, h3, h4',
+        collapseDepth: 1
       });
-    </script>
-                              
-    
+    });
+  </script>
 </body>
 </html>
