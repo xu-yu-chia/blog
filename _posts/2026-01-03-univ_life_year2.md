@@ -2,6 +2,7 @@
 date: 2026-01-03
 title: "University Life (Year 2)"
 tags: [生活]
+excerpt: "大二比想像中忙很多，這篇就是我怎麼慢慢適應下來。"
 hidden: false
 ---
 
