@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="分享程式、專案與生活！">
+  <title>數位邏輯設計筆記</title>
+  <link rel="stylesheet" href="/blog/assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="shortcut icon" href="/blog/logo.ico" type="image/x-icon">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/blog/script.js" defer></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QSY25GH998');
+  </script>
+</head>
+<body class="is-post-page">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold tracking-wide">
+        <a href="https://xu-yu-chia.github.io/#home"><i class="fa fa-home" aria-hidden="true"></i></a>
+        Xu Yu-Chia's Blog
+      </div>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="https://xu-yu-chia.github.io/about.html"><i class="fa fa-address-card" aria-hidden="true"></i> About Me</a></li>
+        <li><a href="https://xu-yu-chia.github.io/projects.html"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="/blog/"><i class="fas fa-pen" aria-hidden="true"></i> Blogs</a></li>
+        <li><a href="https://xu-yu-chia.github.io/sports_github.html"><i class="fa fa-running" aria-hidden="true"></i> Sports Record</a></li>
+        <li><a href="https://xu-yu-chia.github.io/contact.html"><i class="fa fa-phone" aria-hidden="true"></i> Contact Me</a></li>
+        <li>
+          <a href="https://drive.google.com/drive/folders/1_BK8A8wkxJxGL9JW039_7Fl54rKfsF0T?usp=sharing" aria-label="Drive">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    <aside id="toc-sidebar" class="toc-sidebar" aria-label="Table of contents">
+      <h3>CONTENTS</h3>
+      <div id="toc"></div>
+    </aside>
+
+    <main id="main-content" class="post-content">
+      
+        <div class="post-meta">
+          
+            <span class="meta-chip">2026-03-24</span>
+          
+          
+            
+              <a href="/blog/tags/%E7%A8%8B%E5%BC%8F/" class="tag">程式</a>
+            
+              <a href="/blog/tags/%E5%AD%B8%E7%BF%92/" class="tag">學習</a>
+            
+          
+        </div>
+      
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">數位邏輯設計筆記</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-03-24T00:00:00+08:00" itemprop="datePublished">Mar 24, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="dsd-筆記">DSD 筆記</h1>
+
+<p>3/17上課重點</p>
+<ul>
+  <li>要把要跑的module set as top</li>
+  <li><code class="language-plaintext highlighter-rouge">temp=8'b0</code>or<code class="language-plaintext highlighter-rouge">8'b000000</code>or<code class="language-plaintext highlighter-rouge">0</code>是一樣的</li>
+</ul>
+
+<h2 id="21mux">2/1MUX</h2>
+<pre><code class="language-verilog=">module MUX(out,a,b,sel);
+    output out;
+    input a,b,sel;
+    
+    always @(*) begin
+        if(sel)
+            out = b;
+        else
+            out = a;
+    end
+    //或是 assign out = sel ? b : a ;
+endmodule 
+</code></pre>
+
+<h2 id="full-adder">full adder</h2>
+<pre><code class="language-verilog=">module FA(s,cout,a,b,cin);
+    output s,cout;
+    input a,b,cin;
+    
+    wire temp = 1'b0;// 直接寫0也可以
+    assign {cout,s} = {temp,a} + {temp,b} + {temp,c};
+endmodule
+</code></pre>
+
+<h2 id="rca">RCA</h2>
+<pre><code class="language-verilog=">module RCA(s,c4,a,b,c0);
+    output c4;
+    output [3:0] s;
+    input [3:0] a,b;
+    input c0;
+    
+    wire c1,c2,c3;
+    FA fa0(s[0],c1,a[0],b[0],c0);
+    FA fa1(s[1],c2,a[1],b[1],c1);
+    FA fa2(s[2],c3,a[2],b[2],c2);
+    FA fa3(s[3],c4,a[3],b[3],c3);
+endmodule
+</code></pre>
+
+<h2 id="addsub">ADD&amp;SUB</h2>
+<p><img src="https://hackmd.io/_uploads/HkI6Qu8qZg.png" alt="image" /><br />
+記得有二補數<br />
+<img src="https://hackmd.io/_uploads/Byk-S_U5Zg.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">module RCA(s,c4,a,b,m);
+    output c4;
+    output [3:0] s;
+    input m; //add : 0;sub : 1
+    input [3:0] a,b;
+    
+    wire [3:0] k = b ^ {4{m}};
+    
+    wire c1,c2,c3;
+    FA fa0(s[0],c1,a[0],k[0],m); 
+    //此時c0用m取代因為僅有在減法時需要先+1，所以放在第0位的初始進位
+    FA fa1(s[1],c2,a[1],k[1],c1);
+    FA fa2(s[2],c3,a[2],k[2],c2);
+    FA fa3(s[3],c4,a[3],k[3],c3);
+endmodule
+</code></pre>
+
+<h2 id="equality-comparator">equality comparator</h2>
+<p><img src="https://hackmd.io/_uploads/HJtJKOUc-g.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">module COM(e,a,b);
+    output e;
+    input [3:0] a,b;
+    
+    wire [3:0] c;
+    assign c = a ~^ b;
+    assign e=&amp;c;
+endmodule
+</code></pre>
+
+<h2 id="decoder">decoder</h2>
+<p><img src="https://hackmd.io/_uploads/SJui0u8cbx.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">module dec(d,e,a,b);
+    output reg [3:0] d;
+    input a,b,e;
+    wire [1:0] temp ={a,b}
+    always @(*)begin
+        if(e)
+            d=4'b1111;
+        else begin
+            if(temp == 2'b00)
+                d=4'b1110;
+            else if(temp == 2'b01)
+                d=4'b1101;
+            else if(temp == 2'b10)
+                d=4'b1011;
+            else
+                d=4'b0111;
+        end
+    end
+    /*用case的寫法
+    always @(*) begin
+        if (e)
+            d = 4'b1111;
+        else begin
+            case ({a,b})
+                2'b00: d = 4'b1110;
+                2'b01: d = 4'b1101;
+                2'b10: d = 4'b1011;
+                2'b11: d = 4'b0111;
+                default: d = 4'bxxxx;
+                //default建議寫，比較好除錯
+            endcase
+        end
+    end
+    */
+endmodule
+</code></pre>
+
+<h2 id="bcd-adder">BCD adder</h2>
+<pre><code class="language-verilog=">module bcd_add(s,cout,a,b,cin);
+    output reg [3:0] s;
+    output reg cout;
+    input [3:0] a,b;
+    input cin;
+    
+    reg [4:0] temp;
+    
+    always @(*)begin
+        temp = a + b + cin;
+        if(temp &gt; 9)
+            temp = temp + 4'd6;
+        s = temp[3:0];
+        cout = temp[4];
+    end
+endmodule
+</code></pre>
+
+<hr />
+
+<p>3/24 上課重點</p>
+
+<h2 id="clock">Clock</h2>
+<p><img src="https://hackmd.io/_uploads/H1Jd25yiWl.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">always @(posedge clk)
+
+always @(negedge clk)
+</code></pre>
+
+<h2 id="ff">FF</h2>
+<p><img src="https://hackmd.io/_uploads/rkB-A91o-g.png" alt="image" /></p>
+<h3 id="簡單定義">簡單定義</h3>
+
+<pre><code class="language-verilog=">module FF_PN(clk,x1,y1)
+    input clk,x1;
+    output reg y1;
+    always @(posedge clk)
+        y1 &lt;= x1; //non-blocking assigment(會在同時間更新、不會延遲)
+endmodule
+</code></pre>
+<h3 id="有reset">有reset</h3>
+<h4 id="synchronous-reset">Synchronous reset</h4>
+<p><img src="https://hackmd.io/_uploads/HkP2yj1i-x.png" alt="image" /></p>
+<pre><code class="language-verilog=">module FF_PN(clk,reset,q,d)
+    input reset,clk,d;
+    output reg q;
+    always @(posedge clk) begin
+        if(!reset)
+            q &lt;= 0;
+        else
+            q &lt;= d;
+    end
+endmodule
+</code></pre>
+<h4 id="asynchronous-reset">Asynchronous reset</h4>
+<p><img src="https://hackmd.io/_uploads/HJOqxoks-g.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">module FF_PN(clk,reset,q,d)
+    input reset,clk,d;
+    output reg q;
+    always @(posedge clk or negedge reset ) begin
+        if(!reset)
+            q &lt;= 0;
+        else
+            q &lt;= d;
+    end
+endmodule
+</code></pre>
+
+<h2 id="register">register</h2>
+<pre><code class="language-verilog=">
+
+</code></pre>
+
+  </div><a class="u-url" href="/blog/2026/03/24/dsd/" hidden></a>
+</article>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Xu Yu-Chia's Blog. All rights reserved.</p>
+    <p>Total Views: <span id="viewCount">0</span></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      tocbot.init({
+        tocSelector: '#toc',
+        contentSelector: '.post-content',
+        headingSelector: 'h2, h3, h4',
+        collapseDepth: 1
+      });
+    });
+  </script>
+</body>
+</html>
