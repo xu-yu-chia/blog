@@ -1,6 +1,6 @@
 ---
 date: 2026-06-18
-title: "University Life (Year 2)"
+title: "University Life hide"
 tags: [生活]
 excerpt: "大二比想像中忙很多，這篇就是我怎麼慢慢適應下來。"
 hidden: true
