@@ -23,19 +23,16 @@
 <body class="is-post-page">
   <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
     <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <div class="text-xl font-bold tracking-wide">
-        <a href="https://xu-yu-chia.github.io/#home"><i class="fa fa-home" aria-hidden="true"></i></a>
-        Xu Yu-Chia's Blog
-      </div>
+      <div class="text-xl font-bold tracking-wide"><a href="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
       <ul class="hidden md:flex space-x-6 text-sm">
-        <li><a href="https://xu-yu-chia.github.io/about.html"><i class="fa fa-address-card" aria-hidden="true"></i> About Me</a></li>
-        <li><a href="https://xu-yu-chia.github.io/projects.html"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
-        <li><a href="/blog/"><i class="fas fa-pen" aria-hidden="true"></i> Blogs</a></li>
-        <li><a href="https://xu-yu-chia.github.io/sports_github.html"><i class="fa fa-running" aria-hidden="true"></i> Sports Record</a></li>
-        <li><a href="https://xu-yu-chia.github.io/contact.html"><i class="fa fa-phone" aria-hidden="true"></i> Contact Me</a></li>
+        <li><a href="https://xu-yu-chia.github.io/about.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/projects.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/sports_github.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/contact.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
         <li>
-          <a href="https://drive.google.com/drive/folders/1_BK8A8wkxJxGL9JW039_7Fl54rKfsF0T?usp=sharing" aria-label="Drive">
-            <i class="fa fa-file" aria-hidden="true"></i>
+          <a href="https://docs.google.com/presentation/d/1PIOmGUC-IwMWeeA96dt9h67mbW_WYWk7KJJUqrlnt80/edit?usp=sharing" class="hover:text-gray-300">
+            <i class="fa fa-file"></i>
           </a>
         </li>
       </ul>
@@ -63,17 +60,7 @@
           
         </div>
       
-      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">數位邏輯設計筆記</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2026-03-24T00:00:00+08:00" itemprop="datePublished">Mar 24, 2026
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="dsd-筆記">DSD 筆記</h1>
+      <h1 id="dsd-筆記">DSD 筆記</h1>
 
 <p>3/17上課重點</p>
 <ul>
@@ -267,13 +254,132 @@ endmodule
 endmodule
 </code></pre>
 
-<h2 id="register">register</h2>
-<pre><code class="language-verilog=">
+<h2 id="counter">counter</h2>
+<pre><code class="language-verilog=">module counter (clk,reset,load,in,count)
+    // load 直接從當前值直接到in
+    input clk,reset,load;
+    output [2:0] in;
+    output reg [2:0] count;
+    
+    always @(posedge clk) begin
+        if(reset)
+            count &lt;= 3'b000;
+        else if (load)
+            count &lt;= in;
+        else
+            count &lt;= count + 1'b1;
+    end
+endmodule
 
 </code></pre>
 
-  </div><a class="u-url" href="/blog/2026/03/24/dsd/" hidden></a>
-</article>
+<h2 id="frequency-divider">frequency divider</h2>
+<p>用counter來把高頻變成低頻</p>
+<pre><code class="language-verilog=">module frediv(out,clk)
+    //輸出頻率 = 輸入頻率 / (2N)
+    input clk;
+    output out;
+    reg [31:0] count=0,N;
+
+
+    always @(posedge clk) begin
+        if (count == N-1) begin
+            count &lt;= 0;
+            out &lt;= ~out;
+        end 
+        else begin
+            count &lt;= count + 1;
+        end
+    end
+</code></pre>
+
+<h2 id="synchronous-fifo">synchronous FIFO</h2>
+<p><img src="https://hackmd.io/_uploads/H1h12n1i-x.png" alt="image" /></p>
+
+<pre><code class="language-verilog=">module sync_fifo #(
+    parameter DATA_WIDTH = 8,
+    parameter DEPTH = 16,
+    parameter ADDR_WIDTH = 4   // because 2^4 = 16
+)(
+    input                       clk,
+    input                       reset,
+    input                       wen,
+    input                       ren,
+    input      [DATA_WIDTH-1:0] din,
+    output reg [DATA_WIDTH-1:0] dout,
+    output                      full,
+    output                      empty
+);
+
+    // FIFO memory
+    reg [DATA_WIDTH-1:0] mem [0:DEPTH-1]; //內部記憶體
+
+    // read / write pointers
+    reg [ADDR_WIDTH-1:0] w_ptr;
+    reg [ADDR_WIDTH-1:0] r_ptr;
+
+    // count how many data items are currently stored
+    reg [ADDR_WIDTH:0] count;
+
+    // status flags
+    assign empty = (count == 0);
+    assign full  = (count == DEPTH);
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            w_ptr &lt;= 0;
+            r_ptr &lt;= 0;
+            count &lt;= 0;
+            dout  &lt;= 0;
+        end 
+        else begin
+            case ({wen &amp;&amp; !full, ren &amp;&amp; !empty})
+
+                // 2'b10 : write only
+                2'b10: begin
+                    mem[w_ptr] &lt;= din; //data in
+                    w_ptr &lt;= (w_ptr == DEPTH-1) ? 0 : w_ptr + 1;
+                    count &lt;= count + 1;
+                end
+
+                // 2'b01 : read only
+                2'b01: begin
+                    dout &lt;= mem[r_ptr];
+                    r_ptr &lt;= (r_ptr == DEPTH-1) ? 0 : r_ptr + 1;
+                    count &lt;= count - 1;
+                end
+
+                // 2'b11 : write and read at the same time
+                2'b11: begin
+                    mem[w_ptr] &lt;= din;
+                    dout &lt;= mem[r_ptr];
+
+                    w_ptr &lt;= (w_ptr == DEPTH-1) ? 0 : w_ptr + 1;
+                    r_ptr &lt;= (r_ptr == DEPTH-1) ? 0 : r_ptr + 1;
+
+                    // count does not change
+                    count &lt;= count;
+                end
+
+                // 2'b00 : no operation
+                default: begin
+                    w_ptr &lt;= w_ptr;
+                    r_ptr &lt;= r_ptr;
+                    count &lt;= count;
+                    dout  &lt;= dout;
+                end
+            endcase
+        end
+    end
+
+endmodule
+</code></pre>
+
+<hr />
+
+<p>3/31上課重點</p>
+
+<h2 id="rsic-v-instruction">RSIC-V instruction</h2>
 
     </main>
   </div>
