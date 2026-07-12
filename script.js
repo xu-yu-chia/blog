@@ -35,6 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// 文章與標籤頁：有站內上一頁時返回上一頁，直接開啟時回到 Blog 首頁
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-history-back]').forEach(link => {
+    link.addEventListener('click', event => {
+      const referrer = document.referrer;
+      const cameFromThisSite = referrer && new URL(referrer, window.location.href).origin === window.location.origin;
+
+      if (window.history.length > 1 && cameFromThisSite) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  });
+});
+
+
 
 
 

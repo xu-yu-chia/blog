@@ -245,6 +245,26 @@ img { display: block; max-width: 100%; }
 
 .post-content { min-width: 0; }
 
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  margin: 0 0 28px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.back-link span {
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.back-link:hover { text-decoration: underline; }
+.back-link:hover span { transform: translateX(-4px); }
+
 .post-content > h1 {
   margin: 0;
   max-width: 900px;

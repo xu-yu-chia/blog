@@ -52,6 +52,12 @@
     {% endif %}
 
     <article class="post-content{% if page.date %} article-page{% endif %}">
+      {% if page.date or page.tag %}
+        <a class="back-link" href="{{ '/' | relative_url }}" data-history-back aria-label="返回上一頁或 Blog 首頁">
+          <span aria-hidden="true">←</span>
+          返回 Blog
+        </a>
+      {% endif %}
       {% if page.date or page.tags %}
         <div class="post-meta">
           {% if page.date %}
