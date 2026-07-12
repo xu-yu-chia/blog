@@ -6,11 +6,8 @@
   <meta name="description" content="{{ site.description | default: site.title }}">
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="shortcut icon" href="{{ '/logo.ico' | relative_url }}" type="image/x-icon">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="{{ '/script.js' | relative_url }}" defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSY25GH998"></script>
   <script>
@@ -21,31 +18,40 @@
   </script>
 </head>
 <body class="{% if page.date %}is-post-page{% endif %}">
-  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <div class="text-xl font-bold tracking-wide"><a href="https://xu-yu-chia.github.io/#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
-      <ul class="hidden md:flex space-x-6 text-sm">
-        <li><a href="https://xu-yu-chia.github.io/about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
-        <li><a href="https://xu-yu-chia.github.io/projects/index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
-        <li><a href="https://xu-yu-chia.github.io/sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
-        <li><a href="https://xu-yu-chia.github.io/contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
-        <li>
-          <a href="https://docs.google.com/presentation/d/1PIOmGUC-IwMWeeA96dt9h67mbW_WYWk7KJJUqrlnt80/edit?usp=sharing" class="hover:text-gray-300">
-            <i class="fa fa-file"></i>
-          </a>
-        </li>
-      </ul>
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="主要導覽">
+      <a class="brand" href="https://xu-yu-chia.github.io/">
+        <img src="{{ '/logo.ico' | relative_url }}" alt="" width="30" height="30">
+        <span>Xu Yu-Chia</span>
+        <span class="brand-section">Blog</span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="blog-navigation">
+        <span>Menu</span>
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-panel" id="blog-navigation">
+        <a href="https://xu-yu-chia.github.io/">Home</a>
+        <a href="https://xu-yu-chia.github.io/projects/">Projects</a>
+        <a href="https://xu-yu-chia.github.io/sports/">Sports</a>
+        <a href="https://xu-yu-chia.github.io/blog/" aria-current="page">Blog</a>
+        <a href="https://xu-yu-chia.github.io/contact/">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <div class="page-shell">
-    <aside id="toc-sidebar" class="toc-sidebar" aria-label="Table of contents">
-      <h3>CONTENTS</h3>
-      <div id="toc"></div>
-    </aside>
+  <main id="main-content" class="page-shell{% if page.date %} has-toc{% endif %}">
+    {% if page.date %}
+      <aside id="toc-sidebar" class="toc-sidebar" aria-label="文章目錄">
+        <h3>CONTENTS</h3>
+        <div id="toc"></div>
+      </aside>
+    {% endif %}
 
-    <main id="main-content" class="post-content">
+    <article class="post-content{% if page.date %} article-page{% endif %}">
       {% if page.date or page.tags %}
         <div class="post-meta">
           {% if page.date %}
@@ -59,17 +65,21 @@
         </div>
       {% endif %}
       {{ content }}
-    </main>
-  </div>
+    </article>
+  </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 Xu Yu-Chia's Blog. All rights reserved.</p>
-    <p>Total Views: <span id="viewCount">0</span></p>
+    <p><a href="https://xu-yu-chia.github.io/">© 2026 Xu Yu-Chia</a></p>
+    <div>
+      <a href="https://xu-yu-chia.github.io/">Main site</a>
+      <a href="https://xu-yu-chia.github.io/contact/">Contact</a>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/tocbot/dist/tocbot.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      if (!document.getElementById('toc') || typeof tocbot === 'undefined') return;
       tocbot.init({
         tocSelector: '#toc',
         contentSelector: '.post-content',

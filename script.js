@@ -11,6 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// 主站風格的行動版導覽
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.querySelector('.menu-button');
+  const panel = document.querySelector('.nav-panel');
+  if (!button || !panel) return;
+
+  const closeMenu = () => {
+    button.setAttribute('aria-expanded', 'false');
+    panel.classList.remove('is-open');
+  };
+
+  button.addEventListener('click', () => {
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!isOpen));
+    panel.classList.toggle('is-open', !isOpen);
+  });
+
+  panel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+});
+
+
 
 
 
