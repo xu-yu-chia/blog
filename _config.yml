@@ -22,3 +22,5 @@ collections:
 permalink: /:year/:month/:day/:title/
 
 
+exclude:
+  - jekyll-local-4000.out.log

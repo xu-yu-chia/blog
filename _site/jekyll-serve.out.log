@@ -3,3 +3,11 @@ Configuration file: D:/網頁/blog/_config.yml
        Destination: D:/網頁/blog/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
+                    done in 0.831 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+[2026-06-22 21:24:06] ERROR Errno::ECONNRESET: An existing connection was forcibly closed by the remote host. @ io_fillbuf - fd:6 
+	C:/Users/User/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.1/lib/webrick/httpserver.rb:82:in 'IO#eof?'
+	C:/Users/User/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.1/lib/webrick/httpserver.rb:82:in 'WEBrick::HTTPServer#run'
+	C:/Users/User/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.1/lib/webrick/server.rb:310:in 'block in WEBrick::GenericServer#start_thread'
