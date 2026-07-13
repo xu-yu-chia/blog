@@ -3,7 +3,7 @@ title: "轉系經驗談"
 date: 2025-08-04
 tags: [學習]
 excerpt: "轉系前我想了很多，這篇就把整個思考和準備過程寫下來。"
-hidden: false
+hidden: true
 ---
 
 
